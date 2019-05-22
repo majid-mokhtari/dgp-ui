@@ -1,0 +1,34 @@
+.charities-container {
+}
+.featured-charity-card {
+  height: 300px;
+  display: flex;
+  transition: box-shadow 0.5s;
+  cursor: pointer;
+}
+.featured-charity-card:hover {
+  box-shadow: 4px 5px 9px 0px #888888;
+}
+.charities-card-container {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.charity-card {
+  width: 32%;
+  background-color: #fff;
+  margin-bottom: 30px;
+  transition: box-shadow 0.5s;
+  cursor: pointer;
+}
+.charity-card:hover {
+  box-shadow: 4px 5px 9px 0px #888888;
+}
+.charity-card-logo {
+  width: 30%;
+  margin: auto;
+}
+.liked {
+  color: #ff6363;
+}

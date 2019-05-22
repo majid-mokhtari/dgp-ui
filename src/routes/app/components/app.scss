@@ -1,0 +1,17 @@
+.app-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+}
+.app-children {
+  margin-bottom: 7px;
+  height: 100%;
+  min-height: calc(100vh - 200px);
+  top: 65px;
+  position: relative;
+}
+.app-container .ant-back-top {
+  right: 30px;
+  bottom: 30px;
+}

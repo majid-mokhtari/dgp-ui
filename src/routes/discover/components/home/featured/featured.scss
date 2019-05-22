@@ -1,0 +1,50 @@
+.featured-container {
+  transition: box-shadow 0.5s;
+  cursor: pointer;
+}
+.featured-container:hover {
+  box-shadow: 4px 5px 9px 0px #888888;
+}
+.featured-content {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  width: 100%;
+  height: 300px;
+}
+.featured-media {
+  margin-top: 5px;
+}
+.youtube-player {
+  background-color: #fff;
+}
+.featured-description {
+  background-color: #fff;
+  height: 300px;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.featured-summary {
+  flex: 2;
+}
+.featured-title {
+}
+.featured-socials div {
+  margin-right: 20px;
+}
+
+.featured-socials a {
+  margin-right: 20px;
+}
+
+.featured-cards {
+  display: flex;
+  flex-flow: wrap;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+.featured-cards .card {
+  width: 300px;
+}

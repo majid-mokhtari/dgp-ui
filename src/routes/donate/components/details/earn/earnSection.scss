@@ -1,0 +1,40 @@
+.earn-section {
+  min-width: 35%;
+  justify-content: center;
+  margin-left: 30px;
+  margin-top: 20px;
+  background-color: #fff;
+}
+
+.earn-section-title {
+  text-align: center;
+  background-color: #00ce6f;
+  padding: 5px 0;
+}
+.earn-section form {
+  padding: 20px;
+}
+.earn-section .ant-input-number {
+  width: 100%;
+}
+.earn-section .ant-radio-group {
+  width: 100%;
+}
+.earn-section .ant-radio-button-wrapper {
+  text-align: center;
+}
+.earn-form-amount .ant-radio-button-wrapper {
+  width: 25%;
+}
+.earn-form-frequency .ant-radio-button-wrapper {
+  width: 50%;
+}
+.earn-form-paymentMethod .ant-radio-button-wrapper {
+  width: 33.33%;
+}
+.earn-form-button {
+  text-align: center;
+}
+.earn-form-button button {
+  width: 50%;
+}

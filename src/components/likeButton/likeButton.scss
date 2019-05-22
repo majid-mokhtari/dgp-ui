@@ -1,0 +1,14 @@
+.like-btn {
+  padding: 5px 27px;
+  margin: 0 15px;
+  cursor: pointer;
+}
+.like-btn.border {
+  border: 1px solid #ff6363;
+}
+.like-btn.liked {
+  padding: 5px 23px;
+}
+.like-btn:hover {
+  color: #ff6363;
+}

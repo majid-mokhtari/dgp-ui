@@ -1,0 +1,43 @@
+.login-form-container {
+  text-align: center;
+}
+.login-form-container h3 {
+  margin-bottom: 20px;
+}
+.login-form {
+  width: 40%;
+  text-align: center;
+  font-size: 15px;
+  margin: auto;
+}
+.login-btn {
+  width: 100%;
+}
+.form-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+.social-auth-buttons {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+.social-auth-buttons button {
+  margin-bottom: 20px;
+}
+.social-auth-buttons button:nth-child(2) {
+  background: #4267b2;
+  color: #fff;
+}
+.social-auth-buttons button i {
+  margin-right: 10px;
+}
+.forgot-pass {
+  display: flex;
+  margin-top: -15px;
+  margin-bottom: 20px;
+}

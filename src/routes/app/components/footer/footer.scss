@@ -1,0 +1,15 @@
+.app-footer {
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+}
+.footer-nav {
+  display: flex;
+  list-style: none;
+}
+.footer-nav li {
+  margin-right: 25px;
+}
