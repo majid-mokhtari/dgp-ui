@@ -1,10 +1,26 @@
 import React from "react";
-import { Icon } from "antd";
+import { Menu, Dropdown, Icon } from "antd";
 
 export default function MainMenu(props) {
   const { pathname } = props.history.location;
   const pathArr = pathname.split("/");
   const path = pathArr[2];
+
+  const menu = (
+    <Menu>
+      <Menu.Item>
+        <span onClick={() => props.history.push("/app/about/us")}>
+          About Us
+        </span>
+      </Menu.Item>
+      <Menu.Item>
+        <span onClick={() => props.history.push("/app/about/how")}>
+          How it works
+        </span>
+      </Menu.Item>
+    </Menu>
+  );
+
   return (
     <div>
       <div className="header-menu-dropdown">
@@ -23,12 +39,9 @@ export default function MainMenu(props) {
         >
           Donate
         </li>
-        <li
-          className={`${path === "about" ? "active" : ""}`}
-          onClick={() => props.history.push("/app/about")}
-        >
-          How it works
-        </li>
+        <Dropdown overlay={menu}>
+          <li className={`${path === "about" ? "active" : ""}`}>About</li>
+        </Dropdown>
       </ul>
     </div>
   );
