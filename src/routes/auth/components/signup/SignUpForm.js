@@ -88,7 +88,7 @@ function SignupForm(props) {
         <div className="form-footer">
           <span>
             Already have a Do Good Points account?{" "}
-            <span className="href" onClick={() => props.onLoginClick()}>
+            <span className="href" onClick={() => props.onClick()}>
               Log in
             </span>
           </span>

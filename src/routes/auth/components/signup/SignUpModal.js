@@ -11,12 +11,10 @@ export default function SignUpModal(props) {
     props.onLoginClick();
   }
   return (
-    <Modal visible={true} onCancel={handleCloseModal} footer={null}>
-      <SignupForm
-        {...props}
-        onSubmitForm={handleCloseModal}
-        onLoginClick={onLoginClick}
-      />
-    </Modal>
+    <SignupForm
+      {...props}
+      onSubmitForm={handleCloseModal}
+      onLoginClick={onLoginClick}
+    />
   );
 }

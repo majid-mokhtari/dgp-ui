@@ -61,7 +61,7 @@ function LoginForm(props) {
         <div className="form-footer">
           <span>
             Dont have an account?{" "}
-            <span className="href" onClick={() => props.onSignUpClick()}>
+            <span className="href" onClick={() => props.onClick()}>
               Sign up
             </span>
           </span>

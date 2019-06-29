@@ -12,13 +12,11 @@ const LoginModal = props => {
   }
   useEffect(() => {}, []);
   return (
-    <Modal visible={true} onCancel={handleCloseModal} footer={null}>
-      <LoginForm
-        {...props}
-        onSubmitForm={handleCloseModal}
-        onSignUpClick={onSignUpClick}
-      />
-    </Modal>
+    <LoginForm
+      {...props}
+      onSubmitForm={handleCloseModal}
+      onSignUpClick={onSignUpClick}
+    />
   );
 };
 
