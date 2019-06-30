@@ -23,10 +23,10 @@ export function onServerError({ data, response }) {
   if (response && response.status === 401) {
     logoutUser();
   }
-  const { err } = data;
+  const { status } = data;
   return {
     type: types.SERVER_ERROR,
-    err
+    err: status
   };
 }
 

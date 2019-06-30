@@ -13,7 +13,8 @@ export default function auth(state = initialState, action) {
     case types.USER_LOGGED_IN:
       return objectAssign({}, state, {
         viewState: types.USER_LOGGED_IN,
-        isLoggedIn: true
+        isLoggedIn: true,
+        authError: ""
       });
 
     case types.USER_LOGGED_OUT:

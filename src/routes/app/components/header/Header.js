@@ -4,12 +4,13 @@ import UserDropdown from "./UserDropdown";
 import AuthButtons from "./AuthButtons";
 import "./header.scss";
 
+//change back false to isLoggedIn
 function Header(props) {
   const { logoutUser, isLoggedIn, history, avatarUrl } = props;
   return (
     <div className="header">
       <MainMenu history={history} />
-      {isLoggedIn ? (
+      {false ? (
         <UserDropdown logoutUser={logoutUser} avatarUrl={avatarUrl} />
       ) : (
         <AuthButtons {...props} />

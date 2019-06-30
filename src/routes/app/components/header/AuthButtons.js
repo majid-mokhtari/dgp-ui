@@ -1,8 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Modal } from "antd";
-
-// import LoginModal from "../../../auth/components/login";
-// import SignUpModal from "../../../auth/components/signup";
 
 import LoginForm from "../../../auth/components/login";
 import SignUpForm from "../../../auth/components/signup";
@@ -10,7 +7,6 @@ import SignUpForm from "../../../auth/components/signup";
 export default function AuthButtons(props) {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
-  const [showModal, setShowModal] = useState(false);
 
   //should use useReducer but im lazy
   function onLoginClick() {
@@ -28,6 +24,14 @@ export default function AuthButtons(props) {
     setShowSignUpModal(false);
   }
 
+  useEffect(() => {
+    if (props.authError === "fail") {
+    }
+    if (props.isLoggedIn && props.authError === "") {
+      handleCloseModal();
+    }
+  }, [props.authError, props.isLoggedIn]);
+
   const renderGenericModal = (Form, OnClick) => {
     return (
       <Modal visible={true} onCancel={handleCloseModal} footer={null}>
@@ -36,7 +40,7 @@ export default function AuthButtons(props) {
     );
   };
 
-  const renderModal = (showLoginModal, showModal, showSignUpModal) => {
+  const renderModal = (showLoginModal, showSignUpModal) => {
     if (showLoginModal) {
       return renderGenericModal(LoginForm, onSignUpClick);
     }
@@ -53,7 +57,7 @@ export default function AuthButtons(props) {
         Sign up
       </Button>
       <Button onClick={onLoginClick}>Log in</Button>
-      {renderModal(showLoginModal, showModal, showSignUpModal)}
+      {renderModal(showLoginModal, showSignUpModal)}
     </div>
   );
 }

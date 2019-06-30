@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../../actions";
-import SignUpModal from "./SignUpModal";
+import SignUpForm from "./SignUpForm";
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -19,4 +19,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SignUpModal);
+)(SignUpForm);

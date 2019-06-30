@@ -10,7 +10,7 @@ function LoginForm(props) {
     props.form.validateFields((err, values) => {
       if (!err) {
         props.actions.loginRequest(values);
-        props.onSubmitForm();
+        //   props.onSubmitForm();
       }
     });
   }

@@ -3,12 +3,12 @@ import * as util from "../../../lib/util.js";
 import * as types from "../../../constants/types";
 
 export const baseUrl =
-  process.env.REACT_APP_DO_GOOD_URL || "http://localhost:8010";
+  process.env.REACT_APP_DO_GOOD_URL || "http://localhost:8000";
 
 export function loginRequest(request) {
   return dispatch => {
     axios
-      .post(`${baseUrl}/users/login`, request)
+      .post(`${baseUrl}/dgp/v1/member/login`, request)
       .then(res => {
         return dispatch(userLoggedIn(res));
       })
@@ -40,7 +40,7 @@ export function logoutUser() {
   const headers = { token };
   return dispatch => {
     axios
-      .delete(`${baseUrl}/users/logout`, { headers })
+      .delete(`${baseUrl}/dgp/v1/member/logout`, { headers })
       .then(res => {
         return dispatch(userLoggedOut(res));
       })
