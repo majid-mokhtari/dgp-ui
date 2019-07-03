@@ -8,7 +8,9 @@ import Subscribe from "../../../../components/subscribe/Subscribe";
 import "./home.scss";
 
 function Home(props) {
-  useEffect(() => {}, []);
+  useEffect(() => {
+    props.actions.getDonationPartners();
+  }, []);
   return (
     <div className="donate-home">
       <div className="donate-header">

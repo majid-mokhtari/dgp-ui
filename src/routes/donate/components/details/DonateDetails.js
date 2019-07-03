@@ -10,7 +10,7 @@ import DonateTabs from "./tabs/DonateTabs";
 import EarnSection from "./earn/EarnSection";
 
 function DonateDetails(props) {
-  const { donateDetails } = props;
+  const { selectedDonation } = props;
   const { id } = props.match.params;
 
   useEffect(() => {
@@ -18,24 +18,24 @@ function DonateDetails(props) {
     window.scrollTo(0, 0);
   }, []);
 
-  if (!donateDetails) return null;
-
+  if (!selectedDonation) return null;
+  const images = JSON.parse(selectedDonation.creative);
   return (
     <div className="donate-details-container">
       <img
         className="donate-details-img"
-        src={donateDetails.image}
+        src={images["600x400"][0]}
         alt="donate-details-img"
       />
       <div className="donate-details">
         <img
           className="donate-details-logo"
-          src={donateDetails.logo}
+          src={selectedDonation.logoURL}
           alt="donate-details-logo"
         />
-        <h1>{donateDetails.title}</h1>
+        <h1>{selectedDonation.short_desc}</h1>
         <div className="donate-details-tags">
-          {donateDetails.tags.map((tag, i) => {
+          {selectedDonation.categories.map((tag, i) => {
             return (
               <span key={i}>
                 <Icon type="tag" />
@@ -46,7 +46,7 @@ function DonateDetails(props) {
         </div>
         <div className="donate-details-likes">
           <span>
-            Liked by {util.intToString(donateDetails.likes)} Do-gooders
+            Liked by {util.intToString(selectedDonation.likeCount)} Do-gooders
           </span>
           <LikeButton {...props} border />
         </div>

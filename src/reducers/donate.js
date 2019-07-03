@@ -3,7 +3,8 @@ import * as types from "../constants/types";
 
 const initialState = {
   filters: ["all"],
-  donateDetails: null
+  donations: [],
+  selectedDonation: null
 };
 
 export default function donate(state = initialState, action) {
@@ -13,10 +14,15 @@ export default function donate(state = initialState, action) {
         viewState: types.SET_FILTERS,
         filters: action.filters
       });
-    case types.SET_DONATE_DETAILS:
+    case types.DONATION_PARTNERS_RECEIVED:
       return objectAssign({}, state, {
-        viewState: types.SET_DONATE_DETAILS,
-        donateDetails: action.donateDetails
+        viewState: types.DONATION_PARTNERS_RECEIVED,
+        donations: action.payload.donations
+      });
+    case types.DONATE_DETAILS_RECEIVED:
+      return objectAssign({}, state, {
+        viewState: types.DONATE_DETAILS_RECEIVED,
+        selectedDonation: action.payload.selectedDonation
       });
     default:
       return state;

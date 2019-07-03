@@ -1,31 +1,53 @@
+import axios from "axios";
+import * as util from "../../../lib/util.js";
 import * as types from "../../../constants/types";
-import example from "./donate.png";
-import logo from "./logo.jpg";
 
 export const baseUrl =
-  process.env.REACT_APP_DO_GOOD_URL || "http://localhost:8010";
+  process.env.REACT_APP_DO_GOOD_URL || "http://localhost:8000";
 
-export function getDonateDetails(id) {
+export function getDonationPartners() {
   return dispatch => {
-    return dispatch(
-      setDonateDetails({
-        id,
-        image: example,
-        tags: ["environment", "health", "animals"],
-        title: `ant design`,
-        logo: logo,
-        summary:
-          "We supply a series of design principles, practical patterns and high quality design",
-        likes: 12200
+    axios
+      .get(`${baseUrl}/dgp/v1/partners`)
+      .then(({ data }) => {
+        const { Partners } = data.data;
+        return dispatch(setDonationPartners({ donations: Partners }));
       })
-    );
+      .catch(({ response }) => {
+        if (response) {
+          return dispatch(util.onServerError(response));
+        }
+      });
   };
 }
 
-export function setDonateDetails(donateDetails) {
+export function getDonateDetails(id) {
+  return dispatch => {
+    axios
+      .get(`${baseUrl}/dgp/v1/partners/${id}`)
+      .then(({ data }) => {
+        const { Partner } = data.data;
+        return dispatch(setDonationDetails({ selectedDonation: Partner }));
+      })
+      .catch(({ response }) => {
+        if (response) {
+          return dispatch(util.onServerError(response));
+        }
+      });
+  };
+}
+
+function setDonationDetails(payload) {
   return {
-    type: types.SET_DONATE_DETAILS,
-    donateDetails
+    type: types.DONATE_DETAILS_RECEIVED,
+    payload
+  };
+}
+
+export function setDonationPartners(payload) {
+  return {
+    type: types.DONATION_PARTNERS_RECEIVED,
+    payload
   };
 }
 
