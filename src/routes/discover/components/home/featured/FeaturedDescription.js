@@ -1,24 +1,30 @@
 import React from "react";
-import FacebookButton from "../../../../../components/facebookButton/FacebookButton";
-import TwitterButton from "../../../../../components/twitterButton/TwitterButton";
-import CommentButton from "../../../../../components/commentButton/CommentButton";
+import styled from "styled-components";
 
+const StyledContainer = styled.div`
+  background-color: #fff;
+  height: 300px;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+`;
+const StyledTitle = styled.h2``;
+const StyledAuthor = styled.span``;
+const StyledDescription = styled.p`
+  flex: 2;
+`;
 export default function FeaturedDescription(props) {
   return (
-    <div className="featured-description">
-      <h2 className="featured-header">
+    <StyledContainer>
+      <StyledTitle>
         60 More Measles Cases in a Weed - What You Need to Know
-      </h2>
-      <span className="featured-author">Owen Williams in Red Cross</span>
-      <p className="featured-summary">
+      </StyledTitle>
+      <StyledAuthor>Owen Williams in Red Cross</StyledAuthor>
+      <StyledDescription>
         The American Red Cross has been involved in a worldwide battle against
         measles for years and continues its global right against the disease
-      </p>
-      <div className="featured-socials">
-        <FacebookButton {...props} />
-        <TwitterButton {...props} />
-        <CommentButton {...props} />
-      </div>
-    </div>
+      </StyledDescription>
+    </StyledContainer>
   );
 }

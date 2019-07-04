@@ -7,7 +7,10 @@ function DiscoverContainer() {
   return (
     <Switch>
       <Redirect exact from="/app/donate" to="/app/donate/home" />
-      <Route path="/app/donate/home" component={() => <Home showFilter />} />
+      <Route
+        path="/app/donate/home"
+        component={props => <Home {...props} showFilter />}
+      />
       <Route path="/app/donate/details/:id" component={DonateDetails} />
     </Switch>
   );

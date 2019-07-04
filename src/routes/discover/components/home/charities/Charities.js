@@ -17,7 +17,7 @@ export default function Charities(props) {
         <h1>You Might Be Interested In Donating To Them</h1>
         <h3>Donate to the causes that you support and earn points</h3>
       </StyledCharitiesHeader>
-      <Home />
+      <Home {...props} />
     </StyledCharitiesContainer>
   );
 }

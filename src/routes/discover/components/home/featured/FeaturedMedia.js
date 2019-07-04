@@ -1,9 +1,14 @@
 import React from "react";
 import YouTube from "../../../../../components/youTube/YouTube";
+import styled from "styled-components";
+
+const StyledContainer = styled.div`
+  margin-top: 5px;
+`;
 
 export default function FeaturedMedia() {
   return (
-    <div className="featured-media">
+    <StyledContainer>
       <YouTube
         video="pvXPYhK_LiI"
         autoplay="0"
@@ -12,6 +17,6 @@ export default function FeaturedMedia() {
         width="400"
         height="300"
       />
-    </div>
+    </StyledContainer>
   );
 }

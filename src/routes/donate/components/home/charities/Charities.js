@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Spin, Empty } from "antd";
 import CharityCard from "./CharityCard";
-import "./charities.scss";
 import styled from "styled-components";
 
 export default function Charities(props) {

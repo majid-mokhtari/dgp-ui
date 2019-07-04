@@ -7,21 +7,34 @@ import Featured from "./featured/Featured";
 import Charities from "./charities/Charities";
 import RssFeeds from "./rssFeeds/RssFeeds";
 import Subscribe from "../../../../components/subscribe/Subscribe";
-import "./home.scss";
+import styled from "styled-components";
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+const StyledHeader = styled.div`
+  width: 100%;
+`;
+const StyledChildren = styled.div`
+  width: 100%;
+  padding: 20px;
+`;
 
 function home(props) {
   return (
-    <div className="discover-home">
-      <div className="discover-header">
+    <StyledContainer>
+      <StyledHeader>
         <Filters {...props} />
-      </div>
-      <div className="discover-children">
+      </StyledHeader>
+      <StyledChildren>
         <Featured {...props} />
         <Subscribe {...props} />
         <RssFeeds {...props} />
         <Charities {...props} />
-      </div>
-    </div>
+      </StyledChildren>
+    </StyledContainer>
   );
 }
 
