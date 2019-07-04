@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Spin, Empty } from "antd";
-import FeaturedCharityCard from "./FeaturedCharityCard";
 import CharityCard from "./CharityCard";
 import "./charities.scss";
+import styled from "styled-components";
 
 export default function Charities(props) {
   const [count, setCount] = useState(3);
   const [loading, setLoading] = useState(false);
   const { donations } = props;
+
+  const StyledCardsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+  `;
 
   function onLoadMore() {
     if (count < donations.length) {
@@ -53,14 +58,9 @@ export default function Charities(props) {
     };
   });
 
-  const featuredCharity = filteredList.length ? (
-    <FeaturedCharityCard data={filteredList[0]} {...props} />
-  ) : null;
-
   return (
     <div className="charities-container">
-      {featuredCharity}
-      <div className="charities-card-container">{cards}</div>
+      <StyledCardsContainer>{cards}</StyledCardsContainer>
       {loadMoreBtn}
     </div>
   );

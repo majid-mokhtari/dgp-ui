@@ -51,7 +51,6 @@ function DonateDetails(props) {
 
   if (!selectedDonation) return null;
   const images = JSON.parse(selectedDonation.creative);
-  console.log(selectedDonation);
   return (
     <StyledContainer>
       <StyledImg src={images["600x400"][0]} alt="donate-details-img" />

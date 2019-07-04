@@ -1,13 +1,52 @@
 import React from "react";
-import { Card } from "antd";
+import { Icon } from "antd";
 import * as util from "../../../../../lib/util";
-import LikeButton from "../../../../../components/likeButton/LikeButton";
+import styled from "styled-components";
 
-const { Meta } = Card;
+const StyledCardContainer = styled.div`
+  display: flex;
+  background-color: #fff;
+  margin-bottom: 10px;
+  transition: box-shadow 0.5s;
+  cursor: pointer;
+  max-height: 322px;
+  &:hover {
+    box-shadow: 4px 5px 9px 0px #888888;
+  }
+`;
+const StyledImg = styled.img`
+  width: 50%;
+`;
+const StyledSummary = styled.div`
+  width: 50%;
+  padding: 20px 0 0 68px;
+`;
+const StyledLogo = styled.img`
+  height: 70px;
+  margin-bottom: 20px;
+`;
+const StyledTitle = styled.h2``;
+const StyledDescription = styled.div`
+  min-height: 68px;
+`;
+const StyledTagsContainer = styled.div`
+  display: flex;
+  margin-bottom: 25px;
+  justify-content: left;
+`;
+const StyledTag = styled.div`
+  margin-left: 10px;
+`;
+const StyledIcon = styled.i`
+  margin-right: 10px;
+  margin-bottom: 20px;
+`;
+const StyledLikesContainer = styled.div``;
 
 export default function CharityCard(props) {
   const { data, history } = props;
   const images = JSON.parse(data.creative);
+
   function onCardClick(event) {
     const { target } = event;
     const classList = ".like-btn";
@@ -15,24 +54,30 @@ export default function CharityCard(props) {
       history.push(`/app/donate/details/${data.id}`);
     }
   }
-
+  console.log(data);
   return (
-    <div className="charity-card" onClick={onCardClick}>
-      <Card
-        cover={
-          <img
-            className="charity-card-logo"
-            alt="example"
-            src={images["600x400"][0]}
-          />
-        }
-        actions={[
-          <span>{util.intToString(data.likeCount)} Likes</span>,
-          <LikeButton {...props} />
-        ]}
-      >
-        <Meta title={data.short_desc} description={data.long_desc} />
-      </Card>
-    </div>
+    <StyledCardContainer onClick={onCardClick}>
+      <StyledImg src={images["600x400"][0]} alt="charity-img" />
+      <StyledSummary>
+        <StyledLogo src={data.logoURL} alt="charity-logo" />
+        <StyledTitle>{data.short_desc}</StyledTitle>
+        <StyledDescription>{data.long_desc}</StyledDescription>
+        <StyledTagsContainer>
+          {data.categories.map((tag, i) => {
+            return (
+              <StyledTag key={i}>
+                <StyledIcon>
+                  <Icon type="tag" />
+                </StyledIcon>
+                {tag}
+              </StyledTag>
+            );
+          })}
+        </StyledTagsContainer>
+        <StyledLikesContainer>
+          {`${util.intToString(data.likeCount)} Likes`}
+        </StyledLikesContainer>
+      </StyledSummary>
+    </StyledCardContainer>
   );
 }
