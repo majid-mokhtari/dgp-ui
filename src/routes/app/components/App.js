@@ -4,6 +4,7 @@ import Header from "./header/Header";
 import Discover from "../../discover";
 import Donate from "../../donate";
 import About from "../../about";
+import Profile from "../../profile";
 import NotFound from "../../exceptions/NotFound";
 import Footer from "./footer/Footer";
 import { BackTop } from "antd";
@@ -26,6 +27,7 @@ export default function App(props) {
           <Route path="/app/discover" component={Discover} />
           <Route path="/app/donate" component={Donate} />
           <Route path="/app/about" component={About} />
+          <Route path="/app/member" component={Profile} />
           <Route path="*" component={NotFound} />
         </Switch>
       </div>
