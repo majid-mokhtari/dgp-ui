@@ -8,14 +8,20 @@ import Subscribe from "../../../../components/subscribe/Subscribe";
 import "./home.scss";
 
 function Home(props) {
+  const { showFilter } = props;
+
+  const getFilter = () => (
+    <div className="donate-header">
+      <Filters {...props} />
+    </div>
+  );
+
   useEffect(() => {
     props.actions.getDonationPartners();
   }, []);
   return (
     <div className="donate-home">
-      <div className="donate-header">
-        <Filters {...props} />
-      </div>
+      {showFilter && getFilter()}
       <div className="donate-children">
         <Charities {...props} />
         <Subscribe {...props} />

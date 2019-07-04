@@ -54,7 +54,6 @@ export default function CharityCard(props) {
       history.push(`/app/donate/details/${data.id}`);
     }
   }
-  console.log(data);
   return (
     <StyledCardContainer onClick={onCardClick}>
       <StyledImg src={images["600x400"][0]} alt="charity-img" />
