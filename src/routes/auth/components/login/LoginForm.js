@@ -10,19 +10,18 @@ function LoginForm(props) {
     props.form.validateFields((err, values) => {
       if (!err) {
         props.actions.loginRequest(values);
-        //   props.onSubmitForm();
       }
     });
   }
 
   const { getFieldDecorator } = props.form;
 
-  useEffect(() => {
-    props.form.setFieldsValue({
-      email: "m@m.com",
-      password: "irantehran"
-    });
-  }, []);
+  // useEffect(() => {
+  //   props.form.setFieldsValue({
+  //     email: "m@m.com",
+  //     password: "irantehran"
+  //   });
+  // }, []);
 
   return (
     <div className="login-form-container">
