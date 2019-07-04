@@ -3,7 +3,7 @@ import * as types from "../constants/types";
 import { getCurrentUser } from "../lib/util";
 
 const initialState = {
-  isLoggedIn: getCurrentUser() ? true : false, //needs to be reversed after backend is done
+  isLoggedIn: getCurrentUser() ? false : true, //needs to be reversed after backend is done
   authError: "",
   avatarUrl: null
 };

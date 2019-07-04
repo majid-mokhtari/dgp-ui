@@ -25,6 +25,7 @@ export default function AuthButtons(props) {
   }
 
   useEffect(() => {
+    console.log("Test");
     if (props.authError === "fail") {
     }
     if (props.isLoggedIn && props.authError === "") {
