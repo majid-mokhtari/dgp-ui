@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-const categoriesList = [
-  "all",
-  "enviornment",
-  "animals",
-  "health",
-  "humanitarian",
-  "human services"
-];
-
 export default function Categories(props) {
+  const { categories } = props;
   const [selectedCateg, setSelectedCateg] = useState(["all"]);
 
   function onCategoriesClick(val) {
@@ -30,20 +22,21 @@ export default function Categories(props) {
     }
     setSelectedCateg(newList);
   }
-
-  const categories = categoriesList.map((c, i) => {
-    const capilized = c.charAt(0).toUpperCase() + c.slice(1);
-    const className = selectedCateg.indexOf(c) > -1 ? "active" : "";
+  const categoriesList = categories.map((c, i) => {
+    const className = selectedCateg.indexOf(c.categoryID) > -1 ? "active" : "";
     return (
-      <span key={i} onClick={() => onCategoriesClick(c)} className={className}>
-        {capilized}
+      <span
+        key={i}
+        onClick={() => onCategoriesClick(c.categoryID)}
+        className={className}
+      >
+        {c.descriptino}
       </span>
     );
   });
-
   useEffect(() => {
     props.actions.filterCards(selectedCateg);
   }, [selectedCateg]);
 
-  return <div className="categories">{categories}</div>;
+  return <div className="categories">{categoriesList}</div>;
 }

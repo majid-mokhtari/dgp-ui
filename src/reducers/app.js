@@ -2,7 +2,12 @@ import objectAssign from "object-assign";
 import * as types from "../constants/types";
 
 const initialState = {
-  categories: []
+  categories: [
+    {
+      categoryID: "all",
+      descriptino: "All"
+    }
+  ]
 };
 
 export default function app(state = initialState, action) {
@@ -10,7 +15,7 @@ export default function app(state = initialState, action) {
     case types.CATEGORIES_RECEIVED:
       return objectAssign({}, state, {
         viewState: types.CATEGORIES_RECEIVED,
-        categories: action.payload.categories
+        categories: [...state.categories, ...action.payload.categories]
       });
     default:
       return state;

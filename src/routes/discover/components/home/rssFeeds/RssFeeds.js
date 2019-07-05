@@ -7,6 +7,7 @@ const StyledContainer = styled.div`
   background: #fff;
   margin-top: 10px;
   padding: 50px;
+  padding-bottom: 0;
 `;
 const StyledCardsContainer = styled.div`
   display: flex;
@@ -16,12 +17,11 @@ const StyledCardsContainer = styled.div`
 
 export default function RssFeeds(props) {
   const { rssFeeds } = props;
-
   const filteredList = rssFeeds.filter(function(card) {
     if (props.filters[0] === "all") {
       return rssFeeds;
     }
-    return props.filters.indexOf(card.tag) !== -1;
+    return props.filters.indexOf(card.categoryID) !== -1;
   });
 
   const rssCards = filteredList.length ? (

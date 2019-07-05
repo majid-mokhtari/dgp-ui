@@ -3,7 +3,13 @@ import styled from "styled-components";
 import TrendingCard from "./TrendingCard";
 import { Empty } from "antd";
 
-const StyledContainer = styled.div``;
+const StyledContainer = styled.div`
+  background-color: #fff;
+`;
+const StyledCardsContainer = styled.div`
+  width: 80%;
+  margin: auto;
+`;
 
 export default function TrendingFeeds(props) {
   const { trendingFeeds, filters } = props;
@@ -23,6 +29,12 @@ export default function TrendingFeeds(props) {
     <Empty description="No RSS feeds found" />
   );
 
-  console.log(props);
-  return <StyledContainer>{trendingCards}</StyledContainer>;
+  return (
+    <StyledContainer>
+      <StyledCardsContainer>
+        <h2>WHAT'S NEW</h2>
+        {trendingCards}
+      </StyledCardsContainer>
+    </StyledContainer>
+  );
 }
