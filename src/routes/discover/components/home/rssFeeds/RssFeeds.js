@@ -1,16 +1,27 @@
-import React, { useEffect } from "react";
+import React from "react";
 import RssCard from "./RssCard";
 import { Empty } from "antd";
-import "./rssFeeds.scss";
+import styled from "styled-components";
+
+const StyledContainer = styled.div`
+  background: #fff;
+  margin-top: 10px;
+  padding: 50px;
+  padding-bottom: 0;
+`;
+const StyledCardsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
 
 export default function RssFeeds(props) {
   const { rssFeeds } = props;
-
   const filteredList = rssFeeds.filter(function(card) {
     if (props.filters[0] === "all") {
       return rssFeeds;
     }
-    return props.filters.indexOf(card.tag) !== -1;
+    return props.filters.indexOf(card.categoryID) !== -1;
   });
 
   const rssCards = filteredList.length ? (
@@ -22,9 +33,9 @@ export default function RssFeeds(props) {
   );
 
   return (
-    <div className="rss-feeds">
+    <StyledContainer>
       <h2>WHAT'S NEW</h2>
-      <div className="rss-cards-container">{rssCards}</div>
-    </div>
+      <StyledCardsContainer>{rssCards}</StyledCardsContainer>
+    </StyledContainer>
   );
 }
