@@ -24,7 +24,6 @@ function Home(props) {
       {showFilter && getFilter()}
       <div className="donate-children">
         <Charities {...props} />
-        <Subscribe {...props} />
       </div>
     </div>
   );

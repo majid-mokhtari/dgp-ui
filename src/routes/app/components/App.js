@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Redirect, Route } from "react-router";
 import Header from "./header/Header";
 import Discover from "../../discover";
@@ -12,6 +12,9 @@ import "./app.scss";
 
 export default function App(props) {
   const { history, actions, isLoggedIn, avatarUrl } = props;
+  useEffect(() => {
+    props.actions.getCategories();
+  }, []);
   return (
     <div className="app-container">
       <Header

@@ -1,7 +1,34 @@
+import axios from "axios";
+import * as util from "../../../lib/util.js";
 import * as types from "../../../constants/types";
 
 export const baseUrl =
-  process.env.REACT_APP_DO_GOOD_URL || "http://localhost:8010";
+  process.env.REACT_APP_DO_GOOD_URL || "http://localhost:8000";
+
+export function getRssFeeds() {
+  return dispatch => {
+    axios
+      .get(
+        `${baseUrl}/dgp/v1/feeds?cids=animals,health,social,community,human_svc,humanity,public_svc,social`
+      )
+      .then(({ data }) => {
+        const { feeds } = data.data;
+        return dispatch(setRssFeeds({ feeds }));
+      })
+      .catch(({ response }) => {
+        if (response) {
+          return dispatch(util.onServerError(response));
+        }
+      });
+  };
+}
+
+function setRssFeeds(payload) {
+  return {
+    type: types.RSS_FEEDS_RECEIVED,
+    payload
+  };
+}
 
 export function filterCards(res) {
   return dispatch => {
