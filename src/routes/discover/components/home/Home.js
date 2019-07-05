@@ -8,6 +8,7 @@ import Charities from "./charities/Charities";
 import RssFeeds from "./rssFeeds/RssFeeds";
 import Subscribe from "../../../../components/subscribe/Subscribe";
 import styled from "styled-components";
+import TrendingFeeds from "./rssFeeds/TrendingFeeds";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -24,6 +25,7 @@ const StyledChildren = styled.div`
 const Home = props => {
   useEffect(() => {
     props.actions.getRssFeeds();
+    props.actions.getTrendingRssFeeds();
   }, []);
   return (
     <StyledContainer>
@@ -33,6 +35,7 @@ const Home = props => {
         <Subscribe {...props} />
         <Filters {...props} />
         <RssFeeds {...props} />
+        <TrendingFeeds {...props} />
         <Charities {...props} />
       </StyledChildren>
     </StyledContainer>

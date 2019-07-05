@@ -25,7 +25,7 @@ const StyledDescription = styled.p`
   min-height: 60px;
 `;
 
-export default function RssCard({ data, categories }) {
+export default function TrendingCard({ data, categories }) {
   const category = categories.find(c => c.categoryID === data.categoryID);
   return (
     <StyledContainer>

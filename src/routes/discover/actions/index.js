@@ -30,6 +30,31 @@ function setRssFeeds(payload) {
   };
 }
 
+export function getTrendingRssFeeds() {
+  return dispatch => {
+    axios
+      .get(
+        `${baseUrl}/dgp/v1/feeds/trending?cids=animals,health,social,community,human_svc,humanity,public_svc,social`
+      )
+      .then(({ data }) => {
+        const { feeds } = data.data;
+        return dispatch(setTrendingRssFeeds({ trendingFeeds: feeds }));
+      })
+      .catch(({ response }) => {
+        if (response) {
+          return dispatch(util.onServerError(response));
+        }
+      });
+  };
+}
+
+function setTrendingRssFeeds(payload) {
+  return {
+    type: types.RSS_TRENDING_FEEDS_RECEIVED,
+    payload
+  };
+}
+
 export function filterCards(res) {
   return dispatch => {
     return dispatch(setFilters(res));
