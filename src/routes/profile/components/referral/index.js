@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import * as actions from "../../actions";
 import Referral from "./Referral.js";
 
-const MemberReferral = props => {
+const ReferralMember = props => {
   return (
     <div className="how-it-works-container">
       <Referral {...props} />
@@ -28,4 +28,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MemberReferral);
+)(ReferralMember);

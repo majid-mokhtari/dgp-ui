@@ -1,0 +1,64 @@
+.home-container {
+  .ant-card {
+    margin-bottom: 16px;
+  }
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+}
+
+.profile-basic-info-container {
+  .ant-card-body {
+    display: flex;
+    align-content: center;
+
+    flex: 1;
+    flex-direction: row;
+    .profile-picture {
+      display: flex;
+      align-items: center;
+      padding: 40px;
+    }
+  }
+}
+
+.points-container {
+  display: flex;
+  flex-direction: 1;
+  flex: 1;
+  align-content: center;
+  justify-content: center;
+}
+
+.points-earned,
+.points-donated {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+}
+
+.points-earned {
+  border-top: 4px solid;
+  border-top-color: #00c6c0;
+  border-radius: 4px;
+}
+.points-donated {
+  border-top: 4px solid;
+  border-top-color: #ff5344;
+  border-radius: 4px;
+}
+
+.recent-activity-donated {
+  border-top: 4px solid;
+  border-top-color: #ff5344;
+  border-radius: 4px;
+}
+
+.recent-activity-earned {
+  border-top: 4px solid;
+  border-top-color: #00c6c0;
+  border-radius: 4px;
+}
