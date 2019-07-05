@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../../actions";
@@ -19,24 +19,25 @@ const StyledHeader = styled.div`
 `;
 const StyledChildren = styled.div`
   width: 100%;
-  padding: 20px;
 `;
 
-function home(props) {
+const Home = props => {
+  useEffect(() => {
+    props.actions.getRssFeeds();
+  }, []);
   return (
     <StyledContainer>
-      <StyledHeader>
-        <Filters {...props} />
-      </StyledHeader>
+      <StyledHeader />
       <StyledChildren>
         <Featured {...props} />
         <Subscribe {...props} />
+        <Filters {...props} />
         <RssFeeds {...props} />
         <Charities {...props} />
       </StyledChildren>
     </StyledContainer>
   );
-}
+};
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -45,13 +46,14 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => {
-  const { discover } = state;
+  const { discover, app } = state;
   return {
-    ...discover
+    ...discover,
+    ...app
   };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(home);
+)(Home);

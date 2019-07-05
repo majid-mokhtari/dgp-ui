@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const StyledContainer = styled.div`
   width: 80%;
-  margin: auto;
+  margin: 30px auto;
 `;
 const StyledContent = styled.div`
   display: flex;

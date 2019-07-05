@@ -3,7 +3,8 @@ import * as types from "../constants/types";
 
 const initialState = {
   filters: ["all"],
-  featuredDetails: null
+  featuredDetails: null,
+  rssFeeds: []
 };
 
 export default function discover(state = initialState, action) {
@@ -17,6 +18,11 @@ export default function discover(state = initialState, action) {
       return objectAssign({}, state, {
         viewState: types.SET_FEATURED_DETAILS,
         featuredDetails: action.featuredDetails
+      });
+    case types.RSS_FEEDS_RECEIVED:
+      return objectAssign({}, state, {
+        viewState: types.RSS_FEEDS_RECEIVED,
+        rssFeeds: action.payload.feeds
       });
     default:
       return state;
