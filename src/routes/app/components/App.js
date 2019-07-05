@@ -20,6 +20,7 @@ export default function App(props) {
       <Header
         history={history}
         logoutUser={actions.logoutUser}
+        getSelf={actions.getSelf}
         isLoggedIn={isLoggedIn}
         avatarUrl={avatarUrl}
         {...props}

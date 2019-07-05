@@ -5,12 +5,16 @@ import AuthButtons from "./AuthButtons";
 import "./header.scss";
 
 function Header(props) {
-  const { logoutUser, isLoggedIn, history, avatarUrl } = props;
+  const { getSelf, logoutUser, isLoggedIn, history, avatarUrl } = props;
   return (
     <div className="header">
       <MainMenu history={history} />
       {isLoggedIn ? (
-        <UserDropdown logoutUser={logoutUser} avatarUrl={avatarUrl} />
+        <UserDropdown
+          getSelf={getSelf}
+          logoutUser={logoutUser}
+          avatarUrl={avatarUrl}
+        />
       ) : (
         <AuthButtons {...props} />
       )}
