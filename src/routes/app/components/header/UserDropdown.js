@@ -49,6 +49,12 @@ const StyledEmail = styled.span`
 
 export default function UserDropdown(props) {
   const { getSelf, logoutUser, avatarUrl } = props;
+  const { pathname } = props.history.location;
+  const pathArr = pathname.split("/");
+  const path = pathArr[2];
+  const pathSub = pathArr[3];
+  console.log(path, pathSub);
+
   function onLogoutUser() {
     logoutUser();
   }
@@ -71,27 +77,27 @@ export default function UserDropdown(props) {
           </Button>
         </StyledHeaderInfo>
       </StyledDropdownHeader>
-      <Menu.Item>
+      <Menu.Item className={`${pathSub === "points" ? "active" : ""}`}>
         <span onClick={() => props.history.push("/app/member/points")}>
           MY POINTS
         </span>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item className={`${pathSub === "donation" ? "active" : ""}`}>
         <span onClick={() => props.history.push("/app/member/donation")}>
           MY DONATIONS
         </span>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item className={`${pathSub === "comments" ? "active" : ""}`}>
         <span onClick={() => props.history.push("/app/member/comments")}>
           COMMENTS
         </span>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item className={`${pathSub === "favorites" ? "active" : ""}`}>
         <span onClick={() => props.history.push("/app/member/favorites")}>
           MY FAVORITES
         </span>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item className={`${pathSub === "account" ? "active" : ""}`}>
         <span onClick={() => props.history.push("/app/member/account")}>
           SETTING
         </span>

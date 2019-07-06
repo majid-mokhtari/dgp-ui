@@ -14,7 +14,6 @@ export default function MainMenu(props) {
   const pathArr = pathname.split("/");
   const path = pathArr[2];
   const pathSub = pathArr[3];
-  console.log(pathSub);
 
   const menu = (
     <Menu>
