@@ -1,14 +1,24 @@
 .app-footer {
+  .icon {
+    color: black;
+    font-size: 30px;
+  }
+  flex: 1;
+  box-sizing: content-box;
+  background: white;
+  .title {
+    margin-bottom: 24px;
+    font-size: 20px;
+  }
   padding: 100px;
   height: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  margin: 50px 0;
+
   .logo {
     height: 78px;
-    wwidth: 78px;
+    width: 78px;
   }
 }
 .footer-nav {
@@ -22,9 +32,27 @@
 .footer-links {
   display: flex;
   flex-direction: row;
+  .left {
+    padding-right: 24px;
+  }
   .right,
   .left {
     display: flex;
     flex-direction: column;
   }
+}
+
+.connect-with-us,
+.explore,
+.get-updates {
+  display: flex;
+  flex-direction: column;
+}
+
+.anticon-linkdedin,
+.anticon-instagram,
+.anticon-twitter,
+.anticon-facebook {
+  padding-right: 16px;
+  padding-bottom: 16px;
 }
