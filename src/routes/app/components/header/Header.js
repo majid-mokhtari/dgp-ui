@@ -26,9 +26,7 @@ function Header(props) {
   const { getSelf, logoutUser, isLoggedIn, history, avatarUrl } = props;
   return (
     <StyledContainer>
-      <StyledLogo>
-        <h2>Do Good Points Logo</h2>
-      </StyledLogo>
+      <StyledLogo src={"/public/images/logo.svg"} alt="do-good-points-logo" />
       <MainMenu history={history} />
       {isLoggedIn ? (
         <UserDropdown
