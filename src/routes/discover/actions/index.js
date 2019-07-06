@@ -5,6 +5,21 @@ import * as types from "../../../constants/types";
 export const baseUrl =
   process.env.REACT_APP_DO_GOOD_URL || "http://localhost:8000";
 
+export function subscribe(email) {
+  return dispatch => {
+    axios
+      .post(`${baseUrl}/dgp/v1/subscribers/subscribe`, email)
+      .then(({ data }) => {
+        return dispatch(subscribeUser({ email }));
+      })
+      .catch(({ response }) => {
+        if (response) {
+          return dispatch(util.onServerError(response));
+        }
+      });
+  };
+}
+
 export function getRssFeeds() {
   return dispatch => {
     axios
@@ -89,5 +104,12 @@ export function setFeaturedDetails(featuredDetails) {
   return {
     type: types.SET_FEATURED_DETAILS,
     featuredDetails
+  };
+}
+
+export function subscribeUser(email) {
+  return {
+    type: types.SUBSCRIBE_USER,
+    email
   };
 }

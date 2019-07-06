@@ -23,3 +23,4 @@ export const USER_CHANGE_EMAIL = "USER_CHANGE_EMAIL";
 export const USER_CHANGE_NAME = "USER_CHANGE_NAME";
 
 export const USER_GET_SELF = "USER_GET_SELF";
+export const SUBSCRIBE_USER = "USER_GET_SELF";
