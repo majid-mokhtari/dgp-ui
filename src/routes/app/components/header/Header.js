@@ -20,6 +20,7 @@ const StyledLogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 
 const StyledLogo = styled.img`
@@ -30,7 +31,7 @@ function Header(props) {
   const { getSelf, logoutUser, isLoggedIn, history, avatarUrl } = props;
   return (
     <StyledContainer>
-      <StyledLogoContainer>
+      <StyledLogoContainer onClick={() => props.history.push("/app")}>
         <StyledLogo
           src={`${process.env.PUBLIC_URL}/images/logo.svg`}
           alt="do-good-points-logo"
