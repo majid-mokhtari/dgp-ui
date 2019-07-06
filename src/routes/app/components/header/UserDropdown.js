@@ -70,8 +70,8 @@ export default function UserDropdown(props) {
             className="avatar"
           />
           <StyledHeaderInfo>
-            <StyledName>Majid Mokhtari</StyledName>
-            <StyledEmail>majidmokht@gmail.com</StyledEmail>
+            <StyledName>{props.name}</StyledName>
+            <StyledEmail>{props.email}</StyledEmail>
             <Button onClick={() => props.history.push("/app/member/home")}>
               View My Account
             </Button>

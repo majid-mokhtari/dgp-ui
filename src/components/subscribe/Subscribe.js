@@ -4,7 +4,7 @@ import "./subscribe.scss";
 
 const Search = Input.Search;
 
-export default function Subscribe() {
+export default function Subscribe(props) {
   return (
     <div className="subscribe">
       <h1>Get Updates & Get Involved</h1>
@@ -13,7 +13,7 @@ export default function Subscribe() {
         placeholder="Email Address"
         enterButton="SUBSCRIBE"
         size="large"
-        onSearch={value => console.log(value)}
+        onSearch={value => props.actions.subscribe(value)}
         className="subscribe-input"
       />
     </div>

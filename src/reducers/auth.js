@@ -5,6 +5,8 @@ import { getCurrentUser } from "../lib/util";
 const initialState = {
   isLoggedIn: getCurrentUser() ? true : false, //needs to be reversed after backend is done
   authError: "",
+  email: "",
+  name: "",
   avatarUrl: null
 };
 
@@ -14,7 +16,9 @@ export default function auth(state = initialState, action) {
       return objectAssign({}, state, {
         viewState: types.USER_LOGGED_IN,
         isLoggedIn: true,
-        authError: ""
+        authError: "",
+        email: action.payload.data.member.email,
+        name: action.payload.data.member.name
       });
 
     case types.USER_LOGGED_OUT:

@@ -30,6 +30,10 @@ export default function discover(state = initialState, action) {
         viewState: types.RSS_TRENDING_FEEDS_RECEIVED,
         trendingFeeds: action.payload.trendingFeeds
       });
+    case types.SUBSCRIBE_USER:
+      return objectAssign({}, state, {
+        email: action.email
+      });
     default:
       return state;
   }
