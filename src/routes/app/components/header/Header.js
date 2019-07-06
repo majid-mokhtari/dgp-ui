@@ -15,7 +15,7 @@ const StyledContainer = styled.div`
   position: fixed;
   z-index: 1;
 `;
-const StyledLogo = styled.div`
+const StyledLogo = styled.img`
   width: 34%;
   display: flex;
   justify-content: center;
@@ -24,11 +24,10 @@ const StyledLogo = styled.div`
 
 function Header(props) {
   const { getSelf, logoutUser, isLoggedIn, history, avatarUrl } = props;
-  console.log(process.env.PUBLIC_URL);
   return (
     <StyledContainer>
       <StyledLogo
-        src={process.env.PUBLIC_URL + "/images/logo.svg"}
+        src={`${process.env.PUBLIC_URL}/images/logo.svg`}
         alt="do-good-points-logo"
       />
       <MainMenu history={history} />
