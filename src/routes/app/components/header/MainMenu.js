@@ -1,5 +1,13 @@
 import React from "react";
 import { Menu, Dropdown, Icon } from "antd";
+import styled from "styled-components";
+
+const StyledContainer = styled.div`
+  width: 43%;
+  justify-content: flex-end;
+  display: flex;
+  padding-right: 50px;
+`;
 
 export default function MainMenu(props) {
   const { pathname } = props.history.location;
@@ -22,7 +30,7 @@ export default function MainMenu(props) {
   );
 
   return (
-    <div>
+    <StyledContainer>
       <div className="header-menu-dropdown">
         <Icon type="menu-fold" />
       </div>
@@ -43,6 +51,6 @@ export default function MainMenu(props) {
           <li className={`${path === "about" ? "active" : ""}`}>About</li>
         </Dropdown>
       </ul>
-    </div>
+    </StyledContainer>
   );
 }
