@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../../actions";
-import Filters from "./filters/Filters";
+import Filters from "../../../app/components/filters/Filters";
 import Featured from "./featured/Featured";
 import Charities from "./charities/Charities";
 import RssFeeds from "./rssFeeds/RssFeeds";

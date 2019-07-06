@@ -17,21 +17,17 @@ export default function MainMenu(props) {
 
   const menu = (
     <Menu>
-      <Menu.Item>
-        <span
-          className={`${pathSub === "us" ? "active" : ""}`}
-          onClick={() => props.history.push("/app/about/us")}
-        >
-          About Us
-        </span>
+      <Menu.Item
+        onClick={() => props.history.push("/app/about/us")}
+        className={`${pathSub === "us" ? "active" : ""}`}
+      >
+        <span>About Us</span>
       </Menu.Item>
-      <Menu.Item>
-        <span
-          className={`${pathSub === "how" ? "active" : ""}`}
-          onClick={() => props.history.push("/app/about/how")}
-        >
-          How it works
-        </span>
+      <Menu.Item
+        onClick={() => props.history.push("/app/about/how")}
+        className={`${pathSub === "how" ? "active" : ""}`}
+      >
+        <span>How it works</span>
       </Menu.Item>
     </Menu>
   );
