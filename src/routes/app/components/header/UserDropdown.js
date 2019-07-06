@@ -53,7 +53,6 @@ export default function UserDropdown(props) {
   const pathArr = pathname.split("/");
   const path = pathArr[2];
   const pathSub = pathArr[3];
-  console.log(path, pathSub);
 
   function onLogoutUser() {
     logoutUser();

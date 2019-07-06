@@ -34,7 +34,7 @@ export default function RssCard({ data, categories }) {
           <StyledIcon>
             <Icon type="tag" />
           </StyledIcon>
-          {category && category.descriptino}
+          {category && category.description}
         </span>
         <h2>{data.title}</h2>
         <StyledDescription>{data.description}</StyledDescription>

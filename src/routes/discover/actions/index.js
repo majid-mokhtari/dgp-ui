@@ -20,6 +20,31 @@ export function subscribe(email) {
   };
 }
 
+export function getFeaturedOfferByPartner() {
+  return dispatch => {
+    axios
+      .get(`${baseUrl}/dgp/v1/offers/partners/1`)
+      .then(({ data }) => {
+        const { offers } = data.data;
+        return dispatch(
+          setFeaturedOfferByPartner({ featuredOffer: offers[0] })
+        );
+      })
+      .catch(({ response }) => {
+        if (response) {
+          return dispatch(util.onServerError(response));
+        }
+      });
+  };
+}
+
+function setFeaturedOfferByPartner(payload) {
+  return {
+    type: types.FEATURED_OFFER_RECEIVED,
+    payload
+  };
+}
+
 export function getRssFeeds() {
   return dispatch => {
     axios

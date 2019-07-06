@@ -6,11 +6,13 @@ const StyledContainer = styled.div`
   margin-top: 5px;
 `;
 
-export default function FeaturedMedia() {
+export default function FeaturedMedia(props) {
+  const { featuredOffer } = props;
+  if (!featuredOffer) return null;
   return (
     <StyledContainer>
       <YouTube
-        video="pvXPYhK_LiI"
+        video={featuredOffer.videoURL}
         autoplay="0"
         rel="0"
         modest="1"

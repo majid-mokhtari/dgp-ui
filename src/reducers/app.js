@@ -5,7 +5,7 @@ const initialState = {
   categories: [
     {
       categoryID: "all",
-      descriptino: "All"
+      description: "All"
     }
   ]
 };

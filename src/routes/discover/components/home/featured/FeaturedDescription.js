@@ -15,16 +15,13 @@ const StyledDescription = styled.p`
   flex: 2;
 `;
 export default function FeaturedDescription(props) {
+  const { featuredOffer } = props;
+  if (!featuredOffer) return null;
   return (
     <StyledContainer>
-      <StyledTitle>
-        60 More Measles Cases in a Weed - What You Need to Know
-      </StyledTitle>
-      <StyledAuthor>Owen Williams in Red Cross</StyledAuthor>
-      <StyledDescription>
-        The American Red Cross has been involved in a worldwide battle against
-        measles for years and continues its global right against the disease
-      </StyledDescription>
+      <StyledTitle>{featuredOffer.title}</StyledTitle>
+      <StyledAuthor>{featuredOffer.author}</StyledAuthor>
+      <StyledDescription>{featuredOffer.subTitle}</StyledDescription>
     </StyledContainer>
   );
 }

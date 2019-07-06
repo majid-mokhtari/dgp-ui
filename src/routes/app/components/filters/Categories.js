@@ -30,7 +30,7 @@ export default function Categories(props) {
         onClick={() => onCategoriesClick(c.categoryID)}
         className={className}
       >
-        {c.descriptino}
+        {c.description}
       </span>
     );
   });
