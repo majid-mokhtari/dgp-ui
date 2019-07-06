@@ -63,50 +63,58 @@ export default function UserDropdown(props) {
   }
   const menu = (
     <Menu style={{ width: "275px" }}>
-      <StyledDropdownHeader>
-        <StyledMenuAvatar
-          src={avatarUrl || example}
-          alt=""
-          className="avatar"
-        />
-        <StyledHeaderInfo>
-          <StyledName>Majid Mokhtari</StyledName>
-          <StyledEmail>majidmokht@gmail.com</StyledEmail>
-          <Button onClick={() => props.history.push("/app/member/home")}>
-            View My Account
-          </Button>
-        </StyledHeaderInfo>
-      </StyledDropdownHeader>
-      <Menu.Item className={`${pathSub === "points" ? "active" : ""}`}>
-        <span onClick={() => props.history.push("/app/member/points")}>
-          MY POINTS
-        </span>
-      </Menu.Item>
-      <Menu.Item className={`${pathSub === "donation" ? "active" : ""}`}>
-        <span onClick={() => props.history.push("/app/member/donation")}>
-          MY DONATIONS
-        </span>
-      </Menu.Item>
-      <Menu.Item className={`${pathSub === "comments" ? "active" : ""}`}>
-        <span onClick={() => props.history.push("/app/member/comments")}>
-          COMMENTS
-        </span>
-      </Menu.Item>
-      <Menu.Item className={`${pathSub === "favorites" ? "active" : ""}`}>
-        <span onClick={() => props.history.push("/app/member/favorites")}>
-          MY FAVORITES
-        </span>
-      </Menu.Item>
-      <Menu.Item className={`${pathSub === "account" ? "active" : ""}`}>
-        <span onClick={() => props.history.push("/app/member/account")}>
-          SETTING
-        </span>
-      </Menu.Item>
       <Menu.Item>
-        <span onClick={() => onLogoutUser()}>Log Out</span>
+        <StyledDropdownHeader>
+          <StyledMenuAvatar
+            src={avatarUrl || example}
+            alt=""
+            className="avatar"
+          />
+          <StyledHeaderInfo>
+            <StyledName>Majid Mokhtari</StyledName>
+            <StyledEmail>majidmokht@gmail.com</StyledEmail>
+            <Button onClick={() => props.history.push("/app/member/home")}>
+              View My Account
+            </Button>
+          </StyledHeaderInfo>
+        </StyledDropdownHeader>
       </Menu.Item>
-      <Menu.Item>
-        <span onClick={() => onGetSelf()}>Get Self (test)</span>
+
+      <Menu.Item
+        onClick={() => props.history.push("/app/member/points")}
+        className={`${pathSub === "points" ? "active" : ""}`}
+      >
+        <span>MY POINTS</span>
+      </Menu.Item>
+      <Menu.Item
+        onClick={() => props.history.push("/app/member/donation")}
+        className={`${pathSub === "donation" ? "active" : ""}`}
+      >
+        <span>MY DONATIONS</span>
+      </Menu.Item>
+      <Menu.Item
+        onClick={() => props.history.push("/app/member/comments")}
+        className={`${pathSub === "comments" ? "active" : ""}`}
+      >
+        <span>COMMENTS</span>
+      </Menu.Item>
+      <Menu.Item
+        onClick={() => props.history.push("/app/member/favorites")}
+        className={`${pathSub === "favorites" ? "active" : ""}`}
+      >
+        <span>MY FAVORITES</span>
+      </Menu.Item>
+      <Menu.Item
+        onClick={() => props.history.push("/app/member/account")}
+        className={`${pathSub === "account" ? "active" : ""}`}
+      >
+        <span>SETTING</span>
+      </Menu.Item>
+      <Menu.Item onClick={() => onLogoutUser()}>
+        <span>Log Out</span>
+      </Menu.Item>
+      <Menu.Item onClick={() => onGetSelf()}>
+        <span>Get Self (test)</span>
       </Menu.Item>
     </Menu>
   );
@@ -118,7 +126,7 @@ export default function UserDropdown(props) {
       <Dropdown overlay={menu}>
         <StyledHeaderAvatar src={avatarUrl || example} alt="" />
       </Dropdown>
-      <StyledUserName>Ned Stark</StyledUserName>
+      {/* <StyledUserName>Ned Stark</StyledUserName> */}
     </StyledContainer>
   );
 }
