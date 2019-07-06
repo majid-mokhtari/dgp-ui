@@ -32,7 +32,7 @@ export default function TrendingFeeds(props) {
   return (
     <StyledContainer>
       <StyledCardsContainer>
-        <h2>WHAT'S NEW</h2>
+        <h2>TRENDING</h2>
         {trendingCards}
       </StyledCardsContainer>
     </StyledContainer>

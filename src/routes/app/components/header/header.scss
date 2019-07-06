@@ -1,15 +1,4 @@
-.header {
-  width: 100%;
-  height: 60px;
-  display: flex;
-  flex-direction: row;
-  background: #fff;
-  margin-bottom: 7px;
-  position: fixed;
-  z-index: 1;
-}
 .header-menu {
-  flex: 3;
   display: flex;
   list-style: none;
   align-items: center;
@@ -50,8 +39,6 @@
 .header-dropdown {
   position: relative;
   display: flex;
-  flex: 1;
-  justify-content: flex-end;
   cursor: pointer;
 }
 .header-dropdown .avatar {
@@ -75,9 +62,7 @@
   font-weight: 600;
 }
 .header-auth-btns {
-  flex: 1;
   display: flex;
-  justify-content: flex-end;
   margin-right: 20px;
   margin-top: 2px;
 }
