@@ -13,16 +13,24 @@ export default function MainMenu(props) {
   const { pathname } = props.history.location;
   const pathArr = pathname.split("/");
   const path = pathArr[2];
+  const pathSub = pathArr[3];
+  console.log(pathSub);
 
   const menu = (
     <Menu>
       <Menu.Item>
-        <span onClick={() => props.history.push("/app/about/us")}>
+        <span
+          className={`${pathSub === "us" ? "active" : ""}`}
+          onClick={() => props.history.push("/app/about/us")}
+        >
           About Us
         </span>
       </Menu.Item>
       <Menu.Item>
-        <span onClick={() => props.history.push("/app/about/how")}>
+        <span
+          className={`${pathSub === "how" ? "active" : ""}`}
+          onClick={() => props.history.push("/app/about/how")}
+        >
           How it works
         </span>
       </Menu.Item>
