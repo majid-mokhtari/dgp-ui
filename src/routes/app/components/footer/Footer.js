@@ -1,14 +1,16 @@
 import React from "react";
 import "./footer.scss";
+import { Icon, Input } from "antd";
 import logo from "./logo-icon@2x.png";
 import { Link } from "react-router-dom";
 
+const Search = Input.Search;
 export default function Footer() {
   return (
     <div className="app-footer">
       <img className="logo" src={logo} alt="Logo" />
       <div className="explore">
-        <span>Explore</span>
+        <span className="title">Explore</span>
         <div className="footer-links">
           <div className="left">
             <Link to="/app/discover">Discover</Link>
@@ -24,21 +26,36 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="conect-with-us">
-        <span>Connect with Us</span>
+      <div className="connect-with-us">
+        <span className="title">Connect with Us</span>
         <div className="footer-links">
           <div className="left">
-            <a href="/app/discover">FB</a>
-            <a href="/app/donate">Twitter</a>
+            <a href="/app/discover">
+              <Icon className="icon" type="facebook" />
+            </a>
+            <a href="/app/donate">
+              <Icon className="icon" type="twitter" />
+            </a>
           </div>
           <div className="right">
-            <a href="/app/contact">Snap</a>
-            <a href="/app/Privacy">LinkD</a>
+            <a href="/app/contact">
+              <Icon className="icon" type="instagram" />
+            </a>
+            <a href="/app/Privacy">
+              <Icon className="icon" type="linkedin" />
+            </a>
           </div>
         </div>
       </div>
-      <div className="conect-with-us">
-        <span>Get Updated and Get Involved</span>
+      <div className="get-updates">
+        <span className="title">Get Updated and Get Involved</span>
+        <Search
+          placeholder="Email Address"
+          enterButton="SUBSCRIBE"
+          size="large"
+          onSearch={value => console.log(value)}
+          className="subscribe-footer"
+        />
       </div>
     </div>
   );
