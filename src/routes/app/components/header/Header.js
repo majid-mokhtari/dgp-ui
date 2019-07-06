@@ -24,9 +24,13 @@ const StyledLogo = styled.div`
 
 function Header(props) {
   const { getSelf, logoutUser, isLoggedIn, history, avatarUrl } = props;
+  console.log(process.env.PUBLIC_URL);
   return (
     <StyledContainer>
-      <StyledLogo src={"/public/images/logo.svg"} alt="do-good-points-logo" />
+      <StyledLogo
+        src={process.env.PUBLIC_URL + "/images/logo.svg"}
+        alt="do-good-points-logo"
+      />
       <MainMenu history={history} />
       {isLoggedIn ? (
         <UserDropdown
