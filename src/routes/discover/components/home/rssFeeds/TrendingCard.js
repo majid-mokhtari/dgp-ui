@@ -39,7 +39,7 @@ export default function TrendingCard({ data, categories }) {
         <StyledIcon>
           <Icon type="tag" />
         </StyledIcon>
-        {category && category.descriptino}
+        {category && category.description}
         <h2>{data.title}</h2>
         <StyledDescription>{data.description}</StyledDescription>
         <span>{data.date}</span>

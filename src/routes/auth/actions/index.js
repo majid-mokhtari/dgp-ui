@@ -67,7 +67,6 @@ export function signUpRequest(request) {
 
 function userLoggedIn(res) {
   util.storeCurrentUser(document.cookie);
-  console.log(res.headers);
   return {
     type: types.USER_LOGGED_IN,
     payload: res.data

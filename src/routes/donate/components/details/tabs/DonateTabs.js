@@ -19,9 +19,7 @@ const StyledDonateLink = styled.div`
 const TabPane = Tabs.TabPane;
 
 export default function DonateTabs(props) {
-  function callback(key) {
-    console.log(key);
-  }
+  function callback(key) {}
 
   return (
     <StyledTabsContainer>

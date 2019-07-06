@@ -30,8 +30,8 @@ export default function Featured(props) {
     <StyledContainer onClick={onFeaturedClick}>
       <StyledHeader>FEATURED STORY FOR YOU</StyledHeader>
       <StyledContent>
-        <FeaturedMedia />
-        <FeaturedDescription />
+        <FeaturedMedia {...props} />
+        <FeaturedDescription {...props} />
       </StyledContent>
     </StyledContainer>
   );
