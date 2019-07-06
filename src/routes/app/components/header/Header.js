@@ -15,21 +15,27 @@ const StyledContainer = styled.div`
   position: fixed;
   z-index: 1;
 `;
-const StyledLogo = styled.img`
+const StyledLogoContainer = styled.div`
   width: 34%;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
+const StyledLogo = styled.img`
+  width: 110px;
+`;
+
 function Header(props) {
   const { getSelf, logoutUser, isLoggedIn, history, avatarUrl } = props;
   return (
     <StyledContainer>
-      <StyledLogo
-        src={`${process.env.PUBLIC_URL}/images/logo.svg`}
-        alt="do-good-points-logo"
-      />
+      <StyledLogoContainer>
+        <StyledLogo
+          src={`${process.env.PUBLIC_URL}/images/logo.svg`}
+          alt="do-good-points-logo"
+        />
+      </StyledLogoContainer>
       <MainMenu history={history} />
       {isLoggedIn ? (
         <UserDropdown
