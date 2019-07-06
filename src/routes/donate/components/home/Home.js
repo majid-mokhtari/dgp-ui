@@ -2,9 +2,8 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../../actions";
-import Filters from "./filters/Filters";
+import Filters from "../../../discover/components/home/filters/Filters";
 import Charities from "./charities/Charities";
-import Subscribe from "../../../../components/subscribe/Subscribe";
 import "./home.scss";
 
 function Home(props) {
@@ -36,9 +35,10 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => {
-  const { donate } = state;
+  const { donate, app } = state;
   return {
-    ...donate
+    ...donate,
+    ...app
   };
 };
 

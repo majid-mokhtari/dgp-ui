@@ -54,7 +54,7 @@ const ProfileContainer = props => {
         </li>
         <li
           className={`${path === "donate" ? "active" : ""}`}
-          onClick={() => props.history.push("/app/member/Account")}
+          onClick={() => props.history.push("/app/member/account")}
         >
           Account
         </li>

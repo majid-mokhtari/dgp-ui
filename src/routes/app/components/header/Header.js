@@ -35,6 +35,7 @@ function Header(props) {
           getSelf={getSelf}
           logoutUser={logoutUser}
           avatarUrl={avatarUrl}
+          {...props}
         />
       ) : (
         <AuthButtons {...props} />
