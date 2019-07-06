@@ -36,31 +36,6 @@
   opacity: 1;
   transition: top 0.2s ease-in;
 }
-.header-dropdown {
-  position: relative;
-  display: flex;
-  cursor: pointer;
-}
-.header-dropdown .avatar {
-  max-width: 60px;
-  margin-right: 10px;
-  cursor: pointer;
-}
-.header-dropdown .activity {
-  font-size: 30px;
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
-  cursor: pointer;
-}
-.header-dropdown .user-name {
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
-  font-size: 15px;
-  cursor: pointer;
-  font-weight: 600;
-}
 .header-auth-btns {
   display: flex;
   margin-right: 20px;
