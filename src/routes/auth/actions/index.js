@@ -6,8 +6,6 @@ export const baseUrl =
   process.env.REACT_APP_DO_GOOD_URL || "http://localhost:8000";
 
 export function loginRequest(request) {
-  const token = util.getCurrentUser();
-
   return dispatch => {
     axios
       .post(`${baseUrl}/dgp/v1/member/login`, request)
@@ -22,17 +20,32 @@ export function loginRequest(request) {
   };
 }
 
-export function logoutUser(request) {
+export function getSelf() {
   return dispatch => {
     axios
-      .get(`${baseUrl}/dgp/v1/member/self`, request)
+      .get(`${baseUrl}/dgp/v1/member/self`, { withCredentials: true })
       .then(res => {
-        console.log(res);
+        return dispatch(userGetSelf(res));
       })
       .catch(({ response }) => {
         if (response) {
           return dispatch(util.onServerError(response));
         }
+      });
+  };
+}
+
+export function logoutUser() {
+  const token = util.getCurrentUser();
+  const headers = { token };
+  return dispatch => {
+    axios
+      .post(`${baseUrl}/dgp/v1/member/logout`, { headers })
+      .then(res => {
+        return dispatch(userLoggedOut(res));
+      })
+      .catch(err => {
+        return dispatch(util.onServerError(err));
       });
   };
 }
@@ -52,25 +65,18 @@ export function signUpRequest(request) {
   };
 }
 
-// export function logoutUser() {
-//   const token = util.getCurrentUser();
-//   const headers = { token };
-//   return dispatch => {
-//     axios
-//       .post(`${baseUrl}/dgp/v1/member/logout`, { headers })
-//       .then(res => {
-//         return dispatch(userLoggedOut(res));
-//       })
-//       .catch(err => {
-//         return dispatch(util.onServerError(err));
-//       });
-//   };
-// }
-
 function userLoggedIn(res) {
-  util.storeCurrentUser(res.headers);
+  util.storeCurrentUser(document.cookie);
+  console.log(res.headers);
   return {
     type: types.USER_LOGGED_IN,
+    payload: res.data
+  };
+}
+
+function userGetSelf(res) {
+  return {
+    type: types.USER_GET_SELF,
     payload: res.data
   };
 }

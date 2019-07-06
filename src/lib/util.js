@@ -4,7 +4,7 @@ import * as types from "../constants/types";
 const COOKIE_PATH = "DO_GOOD_USER";
 
 export function storeCurrentUser({ token }) {
-  Cookies.set(COOKIE_PATH, token);
+  Cookies.set(COOKIE_PATH, document.cookie);
 }
 
 export function getCurrentUser() {

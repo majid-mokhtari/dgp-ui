@@ -3,7 +3,7 @@ import * as types from "../constants/types";
 import { getCurrentUser } from "../lib/util";
 
 const initialState = {
-  isLoggedIn: getCurrentUser() ? false : true, //needs to be reversed after backend is done
+  isLoggedIn: getCurrentUser() ? true : false, //needs to be reversed after backend is done
   authError: "",
   avatarUrl: null
 };
@@ -21,6 +21,11 @@ export default function auth(state = initialState, action) {
       return objectAssign({}, state, {
         isLoggedIn: false,
         viewState: types.USER_LOGGED_OUT,
+        authError: ""
+      });
+    case types.USER_GET_SELF:
+      return objectAssign({}, state, {
+        isLoggedIn: action.payload,
         authError: ""
       });
     case types.SERVER_ERROR:

@@ -23,7 +23,7 @@ const StyledLogo = styled.div`
 `;
 
 function Header(props) {
-  const { logoutUser, isLoggedIn, history, avatarUrl } = props;
+  const { getSelf, logoutUser, isLoggedIn, history, avatarUrl } = props;
   return (
     <StyledContainer>
       <StyledLogo>
@@ -31,7 +31,11 @@ function Header(props) {
       </StyledLogo>
       <MainMenu history={history} />
       {isLoggedIn ? (
-        <UserDropdown logoutUser={logoutUser} avatarUrl={avatarUrl} />
+        <UserDropdown
+          getSelf={getSelf}
+          logoutUser={logoutUser}
+          avatarUrl={avatarUrl}
+        />
       ) : (
         <AuthButtons {...props} />
       )}

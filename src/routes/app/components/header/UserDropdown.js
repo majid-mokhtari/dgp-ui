@@ -3,14 +3,20 @@ import { Icon, Menu, Dropdown } from "antd";
 import example from "./ned.png";
 
 export default function UserDropdown(props) {
-  const { logoutUser, avatarUrl } = props;
+  const { getSelf, logoutUser, avatarUrl } = props;
   function onLogoutUser() {
     logoutUser();
+  }
+  function onGetSelf() {
+    getSelf();
   }
   const menu = (
     <Menu>
       <Menu.Item>
         <span onClick={() => onLogoutUser()}>Log Out</span>
+      </Menu.Item>
+      <Menu.Item>
+        <span onClick={() => onGetSelf()}>Get Self (test)</span>
       </Menu.Item>
     </Menu>
   );

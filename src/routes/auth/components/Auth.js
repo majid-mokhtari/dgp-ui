@@ -4,6 +4,13 @@ import "./auth.scss";
 
 export default function Auth(props) {
   const { history, isLoggedIn } = props;
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      props.actions.getSelf();
+    }
+  }, []);
+
   useEffect(() => {
     if (isLoggedIn) {
       history.push("/app");
