@@ -3,10 +3,12 @@
   padding: 16px;
   margin-left: 42px;
   margin-right: 16px;
-  min-height: 200px;
-  max-height: 200px;
+  min-width: 150px;
+  // min-height: 350px;
+  // max-height: 400px;
 
   li {
+    padding-bottom: 16px;
     &:hover {
       color: purple;
     }
