@@ -1,19 +1,19 @@
 import React from "react";
 import "./Home.scss";
-import { Card, Button } from "antd";
+import { Card, Button, Avatar } from "antd";
 
 export default function Home(props) {
   return (
     <div className="home-container">
       <Card className="profile-basic-info-container">
         <div className="profile-picture">
-          <span>PICTURE</span>
+          <Avatar size={64} icon="user" />
         </div>
         <div className="profile-basic-info">
           <div className="name"> Hi, NERD</div>
           <div className="points-balance-title"> Available Point Balance</div>
           <div className="points-balance">800 Points</div>
-          <Button type="primary">Refer & Earn 200 Poi</Button>
+          <Button type="primary">Refer & Earn 200 Points</Button>
         </div>
       </Card>
 

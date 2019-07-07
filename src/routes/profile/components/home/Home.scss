@@ -1,5 +1,11 @@
 .home-container {
+  .title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
   .ant-card {
+    border-radius: 4px;
     margin-bottom: 16px;
   }
   display: flex;
@@ -9,6 +15,18 @@
 }
 
 .profile-basic-info-container {
+  div:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  .profile-basic-info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  button {
+    border-radius: 2px;
+  }
   .ant-card-body {
     display: flex;
     align-content: center;
@@ -61,4 +79,10 @@
   border-top: 4px solid;
   border-top-color: #00c6c0;
   border-radius: 4px;
+}
+
+.member-container {
+  .home-container {
+    max-width: 800px;
+  }
 }
