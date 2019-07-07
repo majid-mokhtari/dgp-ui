@@ -2,7 +2,6 @@ import React from "react";
 import MainMenu from "./MainMenu";
 import UserDropdown from "./UserDropdown";
 import AuthButtons from "./AuthButtons";
-import "./header.scss";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
@@ -21,6 +20,9 @@ const StyledLogoContainer = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
 `;
 
 const StyledLogo = styled.img`

@@ -5,7 +5,8 @@ import styled from "styled-components";
 
 const StyledContainer = styled.div`
   width: 80%;
-  margin: 30px auto;
+  padding: 15px 30px;
+  margin: auto;
 `;
 const StyledContent = styled.div`
   display: flex;
@@ -20,7 +21,10 @@ const StyledContent = styled.div`
   }
 `;
 
-const StyledHeader = styled.h1``;
+const StyledHeader = styled.h1`
+  font-size: 24px;
+  font-weight: normal;
+`;
 
 export default function Featured(props) {
   function onFeaturedClick() {

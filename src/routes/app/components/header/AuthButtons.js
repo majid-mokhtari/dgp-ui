@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Button, Modal } from "antd";
-
 import LoginForm from "../../../auth/components/login";
 import SignUpForm from "../../../auth/components/signup";
+import styled from "styled-components";
+
+const StyledContainer = styled.div`
+  display: flex;
+  margin-right: 20px;
+  margin-top: 2px;
+`;
 
 export default function AuthButtons(props) {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -52,12 +58,12 @@ export default function AuthButtons(props) {
   };
 
   return (
-    <div className="header-auth-btns">
+    <StyledContainer>
       <Button type="primary" onClick={onSignUpClick}>
         Sign up
       </Button>
       <Button onClick={onLoginClick}>Log in</Button>
       {renderModal(showLoginModal, showSignUpModal)}
-    </div>
+    </StyledContainer>
   );
 }
