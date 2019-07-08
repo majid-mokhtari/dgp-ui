@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const StyledContainer = styled.div`
   margin-top: 5px;
+  width: 100%;
 `;
 
 export default function FeaturedMedia(props) {
@@ -16,7 +17,7 @@ export default function FeaturedMedia(props) {
         autoplay="0"
         rel="0"
         modest="1"
-        width="400"
+        width="100%"
         height="300"
       />
     </StyledContainer>

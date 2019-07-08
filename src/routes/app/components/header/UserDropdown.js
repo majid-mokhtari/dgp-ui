@@ -15,7 +15,7 @@ const StyledActivityIcon = styled.span`
   align-items: center;
   margin-right: 10px;
   cursor: pointer;
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     margin-right: 30px;
   }
 `;
@@ -23,7 +23,7 @@ const StyledHeaderAvatar = styled.img`
   max-width: 60px;
   margin-right: 10px;
   cursor: pointer;
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     display: none;
   }
 `;
@@ -128,7 +128,7 @@ export default function UserDropdown(props) {
       <StyledActivityIcon>
         <Icon type="bell" />
       </StyledActivityIcon>
-      <Dropdown overlay={menu}>
+      <Dropdown overlay={menu} placement="bottomCenter">
         <StyledHeaderAvatar src={avatarUrl || example} alt="" />
       </Dropdown>
       {/* <StyledUserName>Ned Stark</StyledUserName> */}

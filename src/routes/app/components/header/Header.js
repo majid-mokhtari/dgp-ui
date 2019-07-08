@@ -21,7 +21,7 @@ const StyledLogoContainer = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     width: 100%;
   }
 `;
@@ -29,7 +29,7 @@ const StyledHamburgerButton = styled.div`
   display: none;
   font-size: 30px;
   margin: 5px 30px;
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     display: block;
   }
 `;

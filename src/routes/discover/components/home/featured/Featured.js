@@ -19,6 +19,10 @@ const StyledContent = styled.div`
   &:hover {
     box-shadow: 4px 5px 9px 0px #888888;
   }
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    height: 100%;
+  }
 `;
 
 const StyledHeader = styled.h1`

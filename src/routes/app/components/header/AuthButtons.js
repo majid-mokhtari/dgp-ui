@@ -8,6 +8,12 @@ const StyledContainer = styled.div`
   display: flex;
   margin-right: 20px;
   margin-top: 2px;
+  width: 200px;
+  justify-content: space-around;
+  margin-top: 13px;
+  @media only screen and (max-width: 767px) {
+    width: 80%;
+  }
 `;
 
 export default function AuthButtons(props) {

@@ -10,9 +10,7 @@
   max-width: 70%;
   margin-bottom: 30px;
 }
-.filter .categories {
-  margin-left: 15px;
-}
+
 .filter .sort {
   min-width: 180px;
   margin-right: 20px;
@@ -23,6 +21,7 @@
 .categories {
   display: flex;
   justify-content: center;
+  margin: auto;
 }
 .categories span {
   padding: 5px 10px;
@@ -40,4 +39,14 @@
 .cat-title {
   font-size: 15px;
   font-weight: 700;
+}
+
+@media only screen and (max-width: 768px) {
+  .filter {
+    overflow: scroll;
+    box-shadow: inset -2px -1px 3px 0px #ccc;
+  }
+  .categories {
+    min-width: 120%;
+  }
 }
