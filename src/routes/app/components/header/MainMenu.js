@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Dropdown, Icon } from "antd";
+import { Menu, Dropdown } from "antd";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
@@ -66,14 +66,6 @@ const StyledActiveMenuItem = styled.li`
   &:hover {
     color: #ff6363;
     transition: color 0.2s ease-in;
-  }
-`;
-const StyledHamburgerButton = styled.div`
-  display: none;
-  font-size: 30px;
-  margin: 5px 10px;
-  @media only screen and (max-width: 767px) {
-    display: block;
   }
 `;
 
@@ -149,9 +141,6 @@ export default function MainMenu(props) {
 
   return (
     <StyledContainer>
-      <StyledHamburgerButton>
-        <Icon type="menu-fold" />
-      </StyledHamburgerButton>
       <StyledMenu>{menuItems()}</StyledMenu>
     </StyledContainer>
   );

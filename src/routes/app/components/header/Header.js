@@ -3,6 +3,7 @@ import MainMenu from "./MainMenu";
 import UserDropdown from "./UserDropdown";
 import AuthButtons from "./AuthButtons";
 import styled from "styled-components";
+import { Icon } from "antd";
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -21,7 +22,15 @@ const StyledLogoContainer = styled.div`
   align-items: center;
   cursor: pointer;
   @media only screen and (max-width: 767px) {
-    display: none;
+    width: 100%;
+  }
+`;
+const StyledHamburgerButton = styled.div`
+  display: none;
+  font-size: 30px;
+  margin: 5px 30px;
+  @media only screen and (max-width: 767px) {
+    display: block;
   }
 `;
 
@@ -33,6 +42,9 @@ function Header(props) {
   const { getSelf, logoutUser, isLoggedIn, history, avatarUrl } = props;
   return (
     <StyledContainer>
+      <StyledHamburgerButton>
+        <Icon type="menu-fold" />
+      </StyledHamburgerButton>
       <StyledLogoContainer onClick={() => props.history.push("/app")}>
         <StyledLogo
           src={`${process.env.PUBLIC_URL}/images/logo.svg`}
