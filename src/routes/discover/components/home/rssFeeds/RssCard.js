@@ -15,7 +15,6 @@ const StyledContainer = styled.div`
 `;
 const StyledSummary = styled.div`
   width: 500px;
-  padding-left: 20px;
 `;
 const StyledImg = styled.img`
   width: 40%;

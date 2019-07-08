@@ -8,7 +8,7 @@ const StyledContainer = styled.div`
   margin-top: 10px;
 `;
 const StyledCardsContainer = styled.div`
-  width: 70%;
+  width: 80%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;

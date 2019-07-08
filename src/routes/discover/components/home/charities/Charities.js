@@ -5,8 +5,6 @@ import styled from "styled-components";
 const StyledCharitiesContainer = styled.div`
   margin-top: 20px;
   mpadding-bottom: 30px;
-  width: 70%;
-  margin: auto;
 `;
 const StyledCharitiesHeader = styled.div`
   padding: 40px 0;
