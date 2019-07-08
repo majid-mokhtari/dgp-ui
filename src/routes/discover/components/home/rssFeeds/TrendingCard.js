@@ -6,16 +6,16 @@ const StyledContainer = styled.div`
   margin-bottom: 25px;
   display: flex;
   background: #fff;
-  margin-top: 50px;
+  margin-top: 30px;
 `;
 const StyledSummary = styled.div`
   width: 100%;
-  padding: 20px 50px;
+  padding: 0 50px;
 `;
 
 const StyledImg = styled.img`
-  width: 250px;
-  height: 200px;
+  width: 120px;
+  height: 120px;
 `;
 const StyledIcon = styled.span`
   margin-right: 10px;

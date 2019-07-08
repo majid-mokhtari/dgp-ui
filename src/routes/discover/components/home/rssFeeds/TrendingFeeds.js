@@ -5,10 +5,16 @@ import { Empty } from "antd";
 
 const StyledContainer = styled.div`
   background-color: #fff;
+  padding: 20px 0;
 `;
 const StyledCardsContainer = styled.div`
   width: 80%;
   margin: auto;
+`;
+const StyledTitle = styled.h2`
+  color: #00c6c0;
+  font-size: 24px;
+  font-weight: normal;
 `;
 
 export default function TrendingFeeds(props) {
@@ -32,7 +38,7 @@ export default function TrendingFeeds(props) {
   return (
     <StyledContainer>
       <StyledCardsContainer>
-        <h2>TRENDING</h2>
+        <StyledTitle>TRENDING</StyledTitle>
         {trendingCards}
       </StyledCardsContainer>
     </StyledContainer>

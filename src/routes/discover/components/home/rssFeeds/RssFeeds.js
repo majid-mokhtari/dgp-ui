@@ -6,13 +6,24 @@ import styled from "styled-components";
 const StyledContainer = styled.div`
   background: #fff;
   margin-top: 10px;
-  padding: 50px;
-  padding-bottom: 0;
 `;
 const StyledCardsContainer = styled.div`
+  width: 70%;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding-top: 30px;
+  @media only screen and (max-width: 768px) {
+    width: 95%;
+  }
+`;
+const StyledHeader = styled.h2`
+  color: #00c6c0;
+  font-size: 24px;
+  font-weight: normal;
+  padding-bottom: 30px;
+  position: absolute;
 `;
 
 export default function RssFeeds(props) {
@@ -34,8 +45,10 @@ export default function RssFeeds(props) {
 
   return (
     <StyledContainer>
-      <h2>WHAT'S NEW</h2>
-      <StyledCardsContainer>{rssCards}</StyledCardsContainer>
+      <StyledCardsContainer>
+        <StyledHeader>WHAT'S NEW</StyledHeader>
+        {rssCards}
+      </StyledCardsContainer>
     </StyledContainer>
   );
 }
