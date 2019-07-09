@@ -23,7 +23,7 @@ export function subscribe(email) {
 export function getFeaturedOfferByPartner() {
   return dispatch => {
     axios
-      .get(`${baseUrl}/dgp/v1/offers/partners/1`)
+      .get("/mock/featuredOffers.json")
       .then(({ data }) => {
         const { offers } = data.data;
         return dispatch(
@@ -48,9 +48,7 @@ function setFeaturedOfferByPartner(payload) {
 export function getRssFeeds() {
   return dispatch => {
     axios
-      .get(
-        `${baseUrl}/dgp/v1/feeds?cids=animals,health,social,community,human_svc,humanity,public_svc,social`
-      )
+      .get("/mock/feeds.json")
       .then(({ data }) => {
         const { feeds } = data.data;
         return dispatch(setRssFeeds({ feeds }));
@@ -73,9 +71,7 @@ function setRssFeeds(payload) {
 export function getTrendingRssFeeds() {
   return dispatch => {
     axios
-      .get(
-        `${baseUrl}/dgp/v1/feeds/trending?cids=animals,health,social,community,human_svc,humanity,public_svc,social`
-      )
+      .get("/mock/trendings.json")
       .then(({ data }) => {
         const { feeds } = data.data;
         return dispatch(setTrendingRssFeeds({ trendingFeeds: feeds }));

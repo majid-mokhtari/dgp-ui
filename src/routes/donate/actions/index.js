@@ -8,7 +8,7 @@ export const baseUrl =
 export function getDonationPartners() {
   return dispatch => {
     axios
-      .get(`${baseUrl}/dgp/v1/partners`)
+      .get("/mock/partners.json")
       .then(({ data }) => {
         const { Partners } = data.data;
         return dispatch(setDonationPartners({ donations: Partners }));

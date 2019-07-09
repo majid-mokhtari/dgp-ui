@@ -1,0 +1,43 @@
+{
+  "status": "success",
+  "data": {
+    "Categories": [
+      {
+        "categoryID": "animals",
+        "description": "Animals"
+      },
+      {
+        "categoryID": "community",
+        "description": "Community"
+      },
+      {
+        "categoryID": "environment",
+        "description": "Environment"
+      },
+      {
+        "categoryID": "health",
+        "description": "Health"
+      },
+      {
+        "categoryID": "human_svc",
+        "description": "Human Service"
+      },
+      {
+        "categoryID": "humanity",
+        "description": "Humanitarian"
+      },
+      {
+        "categoryID": "public_svc",
+        "description": " Public Service"
+      },
+      {
+        "categoryID": "social",
+        "description": "Social"
+      }
+    ]
+  },
+  "meta": {
+    "isAuthenticated": false,
+    "isRegisteredNewsletter": false
+  }
+}

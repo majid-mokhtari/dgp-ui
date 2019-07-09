@@ -1,0 +1,37 @@
+{
+  "status": "success",
+  "data": {
+    "offers": [
+      {
+        "offerID": 2,
+        "partnerID": 1,
+        "title": "titel for offer-2",
+        "subTitle": "subtitle for offer-2",
+        "author": "Bill C.",
+        "videoURL": "aUfixpVsrVM",
+        "creative": "{\"600x400\": [\"https://s3.amazonaws.com/dgp-demo-offer-assets/2-600x400.jpeg\"],\"200x100\": [\"https://s3.amazonaws.com/dgp-demo-offer-assets/2-200x100.png\"]}",
+        "content": "content for offer-2",
+        "likeCount": 22,
+        "pointsEarned": 23,
+        "typeID": "OFC"
+      },
+      {
+        "offerID": 1,
+        "partnerID": 1,
+        "title": "titel for offer-1",
+        "subTitle": "subtitle for offer-1",
+        "author": "Andy C.",
+        "videoURL": "aUfixpVsrVM",
+        "creative": "{\"600x400\": [\"https://s3.amazonaws.com/dgp-demo-offer-assets/1-600x400.jpeg\"],\"200x100\": [\"https://s3.amazonaws.com/dgp-demo-offer-assets/1-200x100.jpeg\"]}",
+        "content": "content for offer-1",
+        "likeCount": 11,
+        "pointsEarned": 12,
+        "typeID": "DFC"
+      }
+    ]
+  },
+  "meta": {
+    "isAuthenticated": false,
+    "isRegisteredNewsletter": false
+  }
+}
