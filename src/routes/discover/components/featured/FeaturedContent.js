@@ -5,6 +5,9 @@ import * as actions from "../../actions";
 import YouTube from "../../../../components/youTube/YouTube";
 import styled from "styled-components";
 import { Icon } from "antd";
+import * as util from "../../../../lib/util";
+import LikeButton from "../../../../components/likeButton/LikeButton";
+import CommentForm from "./CommentForm";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -42,6 +45,12 @@ const StyledNavIcon = styled.div`
     color: #000;
   }
 `;
+const StyledSocialContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+`;
+const StyledSocoalActionBtns = styled.div``;
 
 function FeaturedDetails(props) {
   const { featuredOffer } = props;
@@ -71,6 +80,14 @@ function FeaturedDetails(props) {
           />
         </StyledMedia>
         <StyledContent>{featuredOffer.content}</StyledContent>
+        <StyledSocialContainer>
+          {`${util.intToString(featuredOffer.likeCount)} Likes`}
+          <StyledSocoalActionBtns>
+            <i className="fa fa-bookmark" /> Collect
+            <LikeButton {...props} />
+          </StyledSocoalActionBtns>
+        </StyledSocialContainer>
+        <CommentForm {...props} />
       </StyledContentContainer>
       <StyledNavIcon>
         <Icon type="close" onClick={() => props.history.push("/app")} />
