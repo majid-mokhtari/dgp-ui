@@ -20,10 +20,10 @@ export function subscribe(email) {
   };
 }
 
-export function getFeaturedOfferByPartner() {
+export function getFeaturedOfferByPartner(partnerId) {
   return dispatch => {
     axios
-      .get(`${baseUrl}/dgp/v1/offers/partners/1`)
+      .get(`${baseUrl}/dgp/v1/offers/partners/${partnerId}/types/DFC`)
       .then(({ data }) => {
         const { offers } = data.data;
         return dispatch(

@@ -1,5 +1,5 @@
 import React from "react";
-import FeaturedDescription from "./FeaturedDescription";
+import FeaturedSummary from "./FeaturedSummary";
 import FeaturedMedia from "./FeaturedMedia";
 import styled from "styled-components";
 
@@ -32,14 +32,15 @@ const StyledHeader = styled.h1`
 
 export default function Featured(props) {
   function onFeaturedClick() {
-    props.history.push("/app/discover/details/1");
+    const { offerID } = props.featuredOffer;
+    props.history.push(`/app/discover/featured/partner/${offerID}`);
   }
   return (
     <StyledContainer onClick={onFeaturedClick}>
       <StyledHeader>FEATURED STORY FOR YOU</StyledHeader>
       <StyledContent>
         <FeaturedMedia {...props} />
-        <FeaturedDescription {...props} />
+        <FeaturedSummary {...props} />
       </StyledContent>
     </StyledContainer>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import * as util from "../../../../../lib/util";
 
 const StyledContainer = styled.div`
   background-color: #fff;
@@ -10,11 +11,15 @@ const StyledContainer = styled.div`
   flex-direction: column;
 `;
 const StyledTitle = styled.h2``;
-const StyledAuthor = styled.span``;
+const StyledAuthor = styled.span`
+  margin: 10px 0;
+`;
 const StyledDescription = styled.p`
   flex: 2;
 `;
-export default function FeaturedDescription(props) {
+const StyledLikesContainer = styled.div``;
+
+export default function FeaturedSummary(props) {
   const { featuredOffer } = props;
   if (!featuredOffer) return null;
   return (
@@ -22,6 +27,9 @@ export default function FeaturedDescription(props) {
       <StyledTitle>{featuredOffer.title}</StyledTitle>
       <StyledAuthor>{featuredOffer.author}</StyledAuthor>
       <StyledDescription>{featuredOffer.subTitle}</StyledDescription>
+      <StyledLikesContainer>
+        {`${util.intToString(featuredOffer.likeCount)} Likes`}
+      </StyledLikesContainer>
     </StyledContainer>
   );
 }

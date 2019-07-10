@@ -27,7 +27,7 @@ const Home = props => {
   useEffect(() => {
     props.actions.getRssFeeds();
     props.actions.getTrendingRssFeeds();
-    props.actions.getFeaturedOfferByPartner();
+    props.actions.getFeaturedOfferByPartner(1); //partnerId
   }, []);
   return (
     <StyledContainer>
