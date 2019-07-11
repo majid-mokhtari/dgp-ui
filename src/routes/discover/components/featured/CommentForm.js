@@ -9,6 +9,8 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  padding-bottom: 50px;
+  margin-top: 50px;
 `;
 const StyledHeader = styled.h1``;
 
@@ -20,6 +22,7 @@ const StyledDescription = styled.h2`
 const StyledButtonContainer = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 `;
 
 const StyledButtonIcon = styled.img`

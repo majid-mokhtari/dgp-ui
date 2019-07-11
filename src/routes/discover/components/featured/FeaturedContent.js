@@ -4,10 +4,11 @@ import { bindActionCreators } from "redux";
 import * as actions from "../../actions";
 import YouTube from "../../../../components/youTube/YouTube";
 import styled from "styled-components";
-import { Icon } from "antd";
+import { Icon, Button } from "antd";
 import * as util from "../../../../lib/util";
 import LikeButton from "../../../../components/likeButton/LikeButton";
 import CommentForm from "./CommentForm";
+import ShareSection from "./ShareSection";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -88,6 +89,7 @@ function FeaturedDetails(props) {
           </StyledSocoalActionBtns>
         </StyledSocialContainer>
         <CommentForm {...props} />
+        <ShareSection {...props} />
       </StyledContentContainer>
       <StyledNavIcon>
         <Icon type="close" onClick={() => props.history.push("/app")} />
