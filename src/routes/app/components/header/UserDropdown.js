@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Icon, Menu, Dropdown } from "antd";
 import example from "./ned.png";
 import styled from "styled-components";
@@ -63,9 +63,9 @@ export default function UserDropdown(props) {
   function onLogoutUser() {
     logoutUser();
   }
-  function onGetSelf() {
+  useEffect(() => {
     getSelf();
-  }
+  }, []);
   const menu = (
     <Menu style={{ width: "275px" }}>
       <Menu.Item>
@@ -117,9 +117,6 @@ export default function UserDropdown(props) {
       </Menu.Item>
       <Menu.Item onClick={() => onLogoutUser()}>
         <span>Log Out</span>
-      </Menu.Item>
-      <Menu.Item onClick={() => onGetSelf()}>
-        <span>Get Self (test)</span>
       </Menu.Item>
     </Menu>
   );

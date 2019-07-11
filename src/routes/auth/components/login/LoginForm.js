@@ -7,9 +7,12 @@ function LoginForm(props) {
 
   function handleLogin(e) {
     e.preventDefault();
-    props.form.validateFields((err, values) => {
+    props.form.validateFields((err, { email, password }) => {
       if (!err) {
-        props.actions.loginRequest(values);
+        props.actions.loginRequest({
+          email,
+          password
+        });
       }
     });
   }

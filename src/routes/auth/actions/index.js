@@ -9,8 +9,9 @@ export function loginRequest(request) {
   return dispatch => {
     axios
       .post(`${baseUrl}/dgp/v1/member/login`, request)
-      .then(res => {
-        return dispatch(userLoggedIn(res));
+      .then(({ data }) => {
+        const { member } = data.data;
+        return dispatch(userLoggedIn({ member }));
       })
       .catch(({ response }) => {
         if (response) {
@@ -53,7 +54,7 @@ export function logoutUser() {
 export function signUpRequest(request) {
   return dispatch => {
     axios
-      .post(`${baseUrl}/users/signup`, request)
+      .post(`${baseUrl}/dgp/v1/subscribers/enroll`, request)
       .then(res => {
         return dispatch(userLoggedIn(res));
       })
@@ -65,11 +66,11 @@ export function signUpRequest(request) {
   };
 }
 
-function userLoggedIn(res) {
+function userLoggedIn(payload) {
   util.storeCurrentUser(document.cookie);
   return {
     type: types.USER_LOGGED_IN,
-    payload: res.data
+    payload
   };
 }
 

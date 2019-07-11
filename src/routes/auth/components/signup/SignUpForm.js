@@ -9,9 +9,9 @@ function SignupForm(props) {
 
   function handleSignup(e) {
     e.preventDefault();
-    props.form.validateFields((err, values) => {
+    props.form.validateFields((err, { email, password }) => {
       if (!err) {
-        props.actions.signUpRequest(values);
+        props.actions.signUpRequest({ email, password, name: "" });
         props.onSubmitForm();
       }
     });
