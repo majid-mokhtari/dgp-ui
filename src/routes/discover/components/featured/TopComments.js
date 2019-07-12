@@ -14,7 +14,7 @@ const StyledContainer = styled.div`
 `;
 
 const StyledHeader = styled.h1`
-  text-align: center;
+  text-align: left;
 `;
 
 const TopComments = props => {
@@ -24,27 +24,7 @@ const TopComments = props => {
 
   return (
     <StyledContainer>
-      <StyledButtonContainer>
-        <StyledButtonIcon
-          src={`${process.env.PUBLIC_URL}/images/discussion.svg`}
-          alt="do-good-points-discussion"
-        />
-
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.facebook.com/sharer/sharer.php?u=http://www.dogoodspoint.com?one"
-          className="fb-xfbml-parse-ignore"
-        >
-          <Button
-            type="primary"
-            htmlType="submit"
-            style={{ height: "48px", width: "170px" }}
-          >
-            Spread Some Love
-          </Button>
-        </a>
-      </StyledButtonContainer>
+      <StyledHeader>Top Comments</StyledHeader>
     </StyledContainer>
   );
 };

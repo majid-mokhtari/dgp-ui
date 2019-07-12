@@ -81,7 +81,6 @@ function FeaturedDetails(props) {
   }, []);
 
   if (!featuredOffer || !featuredPartner) return null;
-  console.log(featuredPartner);
   return (
     <StyledContainer>
       <StyledNavIcon>

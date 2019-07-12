@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Form, Button, Input, Icon } from "antd";
+import React from "react";
+import { Form, Button } from "antd";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
@@ -39,7 +39,6 @@ const StyledButtonIcon = styled.img`
 
 const CommentForm = props => {
   const { featuredOffer } = props;
-  console.log(featuredOffer);
   const handleSubmit = e => {
     e.preventDefault();
   };
