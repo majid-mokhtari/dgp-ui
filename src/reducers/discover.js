@@ -5,7 +5,8 @@ const initialState = {
   filters: ["all"],
   featuredOffer: null,
   rssFeeds: [],
-  trendingFeeds: []
+  trendingFeeds: [],
+  featuredPartner: null
 };
 
 export default function discover(state = initialState, action) {
@@ -19,6 +20,11 @@ export default function discover(state = initialState, action) {
       return objectAssign({}, state, {
         viewState: types.FEATURED_OFFER_RECEIVED,
         featuredOffer: action.payload.featuredOffer
+      });
+    case types.FEATURED_PARTNER:
+      return objectAssign({}, state, {
+        viewState: types.FEATURED_PARTNER,
+        featuredPartner: action.payload.featuredPartner
       });
     case types.RSS_FEEDS_RECEIVED:
       return objectAssign({}, state, {

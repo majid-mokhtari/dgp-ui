@@ -9,6 +9,7 @@ import * as util from "../../../../lib/util";
 import LikeButton from "../../../../components/likeButton/LikeButton";
 import CommentForm from "./CommentForm";
 import ShareSection from "./ShareSection";
+import CharityCard from "../../../donate/components/home/charities/CharityCard";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -53,15 +54,34 @@ const StyledSocialContainer = styled.div`
 `;
 const StyledSocoalActionBtns = styled.div``;
 
+const StyledCharity = styled.div`
+  border-bottom: 1px solid #bcbcbc;
+  margin-bottom: 60px;
+  padding-bottom: 70px;
+`;
+
+const StyledPartnerHeader = styled.h1`
+  text-align: center;
+`;
+
+const StyledPartnerDescription = styled.h2`
+  font-size: 20px;
+  color: #00c6c0;
+  margin-bottom: 30px;
+  text-align: center;
+`;
+
 function FeaturedDetails(props) {
-  const { featuredOffer } = props;
+  const { featuredOffer, featuredPartner } = props;
   const { id } = props.match.params;
 
   useEffect(() => {
     props.actions.getFeaturedOfferByPartner(id);
+    props.actions.getFeaturedPartner(id);
   }, []);
 
-  if (!featuredOffer) return null;
+  if (!featuredOffer || !featuredPartner) return null;
+  console.log(featuredPartner);
   return (
     <StyledContainer>
       <StyledNavIcon>
@@ -90,6 +110,15 @@ function FeaturedDetails(props) {
         </StyledSocialContainer>
         <CommentForm {...props} />
         <ShareSection {...props} />
+        <StyledCharity>
+          <StyledPartnerHeader>
+            Donate to the Cause that you support
+          </StyledPartnerHeader>
+          <StyledPartnerDescription>
+            Earn 10 Points/Dollar Donated
+          </StyledPartnerDescription>
+          <CharityCard data={featuredPartner} {...props} />
+        </StyledCharity>
       </StyledContentContainer>
       <StyledNavIcon>
         <Icon type="close" onClick={() => props.history.push("/app")} />

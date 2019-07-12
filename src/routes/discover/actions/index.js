@@ -45,6 +45,29 @@ function setFeaturedOfferByPartner(payload) {
   };
 }
 
+export function getFeaturedPartner(partnerId) {
+  return dispatch => {
+    axios
+      .get(`${baseUrl}/dgp/v1/partners/${partnerId}`)
+      .then(({ data }) => {
+        const { Partner } = data.data;
+        return dispatch(setFeaturedPartner({ featuredPartner: Partner }));
+      })
+      .catch(({ response }) => {
+        if (response) {
+          return dispatch(util.onServerError(response));
+        }
+      });
+  };
+}
+
+function setFeaturedPartner(payload) {
+  return {
+    type: types.FEATURED_PARTNER,
+    payload
+  };
+}
+
 export function getRssFeeds() {
   return dispatch => {
     axios
