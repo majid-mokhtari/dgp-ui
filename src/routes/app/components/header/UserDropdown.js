@@ -41,7 +41,7 @@ const StyledDropdownHeader = styled.div`
 `;
 const StyledMenuAvatar = styled.img`
   max-width: 80px;
-  ccursor: pointer;
+  cursor: pointer;
 `;
 const StyledHeaderInfo = styled.div`
   display: flex;

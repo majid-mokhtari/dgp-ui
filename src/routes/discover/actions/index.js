@@ -68,6 +68,29 @@ function setFeaturedPartner(payload) {
   };
 }
 
+export function getCommentsByPartner(partnerId) {
+  return dispatch => {
+    axios
+      .get(`${baseUrl}/dgp/v1/social/comments/partners/${partnerId}`)
+      .then(({ data }) => {
+        const { comments } = data.data;
+        return dispatch(setFeaturedComments({ featuredComments: comments }));
+      })
+      .catch(({ response }) => {
+        if (response) {
+          return dispatch(util.onServerError(response));
+        }
+      });
+  };
+}
+
+function setFeaturedComments(payload) {
+  return {
+    type: types.FEATURED_COMMENTS,
+    payload
+  };
+}
+
 export function getRssFeeds() {
   return dispatch => {
     axios

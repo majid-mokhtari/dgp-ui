@@ -10,6 +10,7 @@ import LikeButton from "../../../../components/likeButton/LikeButton";
 import CommentForm from "./CommentForm";
 import ShareSection from "./ShareSection";
 import CharityCard from "../../../donate/components/home/charities/CharityCard";
+import TopComments from "./TopComments";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -72,15 +73,16 @@ const StyledPartnerDescription = styled.h2`
 `;
 
 function FeaturedDetails(props) {
-  const { featuredOffer, featuredPartner } = props;
+  const { featuredOffer, featuredPartner, featuredComments } = props;
   const { id } = props.match.params;
 
   useEffect(() => {
     props.actions.getFeaturedOfferByPartner(id);
     props.actions.getFeaturedPartner(id);
+    props.actions.getCommentsByPartner(id);
   }, []);
 
-  if (!featuredOffer || !featuredPartner) return null;
+  if (!featuredOffer || !featuredPartner || !featuredComments) return null;
   return (
     <StyledContainer>
       <StyledNavIcon>
@@ -118,6 +120,7 @@ function FeaturedDetails(props) {
           </StyledPartnerDescription>
           <CharityCard data={featuredPartner} {...props} />
         </StyledCharity>
+        <TopComments {...props} />
       </StyledContentContainer>
       <StyledNavIcon>
         <Icon type="close" onClick={() => props.history.push("/app")} />
