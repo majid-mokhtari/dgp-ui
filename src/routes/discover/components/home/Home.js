@@ -28,6 +28,7 @@ const Home = props => {
     props.actions.getRssFeeds();
     props.actions.getTrendingRssFeeds();
     props.actions.getFeaturedOfferByPartner(1); //partnerId
+    window.scrollTo(0, 0);
   }, []);
   return (
     <StyledContainer>

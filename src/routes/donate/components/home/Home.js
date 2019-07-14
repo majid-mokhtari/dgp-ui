@@ -17,6 +17,7 @@ function Home(props) {
 
   useEffect(() => {
     props.actions.getDonationPartners();
+    window.scrollTo(0, 0);
   }, []);
   return (
     <div className="donate-home">
