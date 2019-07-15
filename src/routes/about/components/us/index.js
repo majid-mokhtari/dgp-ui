@@ -5,7 +5,9 @@ import * as actions from "../../actions";
 import Us from "./Us";
 
 const AboutUs = props => {
-  useEffect(() => {}, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="about-us-container">
       <Us {...props} />

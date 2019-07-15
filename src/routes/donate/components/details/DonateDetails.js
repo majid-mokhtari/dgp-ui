@@ -23,10 +23,13 @@ const StyledDonateDetails = styled.div`
   flex-direction: column;
   margin: 25px;
   align-items: center;
+  width: 35%;
 `;
 const StyledLogo = styled.img`
-  width: 100%;
   margin: auto;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
 `;
 const StyledTagsContainer = styled.div`
   display: flex;
