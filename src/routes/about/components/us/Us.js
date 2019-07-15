@@ -82,6 +82,10 @@ function About() {
             />
           </div>
           <div className="row">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/aboutUs/group-2.svg`}
+              alt=""
+            />
             <div className="text-desc">
               <div className="title"> Do Good Business</div>
               <div className="desc">
@@ -93,10 +97,6 @@ function About() {
                 real price of doing good.
               </div>
             </div>
-            <img
-              src={`${process.env.PUBLIC_URL}/images/aboutUs/group-2.svg`}
-              alt=""
-            />
           </div>
         </div>
       </div>
