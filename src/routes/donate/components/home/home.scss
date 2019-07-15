@@ -6,7 +6,14 @@
 .donate-header {
   width: 100%;
 }
+.donate-header.sticky {
+  position: fixed;
+  top: 60px;
+}
 .donate-children {
   width: 100%;
   padding: 30px 20px;
+}
+.donate-children.sticky {
+  margin-top: 60px;
 }

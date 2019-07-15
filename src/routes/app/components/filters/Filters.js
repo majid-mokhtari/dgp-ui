@@ -16,11 +16,7 @@ export default function Filters(props) {
         return "filter";
       }
     } else {
-      if (window.pageYOffset >= 4) {
-        return "filter sticky";
-      } else {
-        return "filter";
-      }
+      return "filter";
     }
   }
   function onScroll() {
