@@ -1,9 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Form, Radio, Button, Icon, InputNumber } from "antd";
+import PaypalButton from "./PayPal";
 import "./earnSection.scss";
+import styled from "styled-components";
 
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
+
+const StyledRadioGroup = styled(RadioGroup)`
+  display: flex !important;
+  justify-content: center;
+`;
+
+const CLIENT = {
+  sandbox:
+    "AZuWGX3QN7h_CQKsh4RzsIRAbcsNBwoAi-MZjV4a1mpBwg05kZzgXB31N39Cp1j05bZr6T9grJRN1oCK",
+  production: "xxxXXX"
+};
+
+const ENV = process.env.NODE_ENV === "production" ? "production" : "sandbox";
 
 function EarnSection(props) {
   const [amount, setAmount] = useState(10);
@@ -16,6 +31,7 @@ function EarnSection(props) {
       }
     });
   }
+
   function onChange(val) {}
 
   const { getFieldDecorator } = props.form;
@@ -31,6 +47,13 @@ function EarnSection(props) {
   useEffect(() => {
     props.form.setFieldsValue({ amount });
   }, [amount]);
+
+  const onSuccess = payment => console.log("Successful payment!", payment);
+
+  const onError = error =>
+    console.log("Erroneous payment OR failed to load script!", error);
+
+  const onCancel = data => console.log("Cancelled payment!", data);
 
   return (
     <div className="earn-section">
@@ -91,17 +114,21 @@ function EarnSection(props) {
         </Form.Item>
         <Form.Item label="Payment Method" className="earn-form-paymentMethod">
           {getFieldDecorator("paymentMethod")(
-            <RadioGroup onChange={onChange}>
+            <StyledRadioGroup onChange={onChange}>
               <RadioButton value="creditCard">
                 <Icon type="credit-card" /> Credit Card
               </RadioButton>
-              <RadioButton value="paypal">
-                <i className="fa fa-paypal" /> Paypal
-              </RadioButton>
-              <RadioButton value="points">
-                <i className="fa fa-coins" /> Points
-              </RadioButton>
-            </RadioGroup>
+              <PaypalButton
+                client={CLIENT}
+                env={ENV}
+                commit={true}
+                currency={"USD"}
+                total={amount}
+                onSuccess={onSuccess}
+                onError={onError}
+                onCancel={onCancel}
+              />
+            </StyledRadioGroup>
           )}
         </Form.Item>
         <Form.Item className="earn-form-button">
