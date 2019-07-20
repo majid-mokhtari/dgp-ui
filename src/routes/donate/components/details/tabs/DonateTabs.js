@@ -2,6 +2,9 @@ import React from "react";
 import { Tabs } from "antd";
 import Home from "./Home";
 import styled from "styled-components";
+import About from "./About";
+import Impact from "./Impact";
+import Feeds from "./Feeds";
 
 const StyledTabsContainer = styled.div`
   margin: 20px 0;
@@ -14,21 +17,20 @@ const TabPane = Tabs.TabPane;
 
 export default function DonateTabs(props) {
   function callback(key) {}
-  //const { selectedDonation } = props;
   return (
     <StyledTabsContainer>
-      <Tabs defaultActiveKey="home" onChange={callback}>
+      <Tabs defaultActiveKey="feeds" onChange={callback}>
         <TabPane tab="Home" key="home">
           <Home {...props} />
         </TabPane>
         <TabPane tab="About" key="about">
-          <div>About</div>
+          <About {...props} />
         </TabPane>
         <TabPane tab="Impact" key="impact">
-          <div>Impact</div>
+          <Impact {...props} />
         </TabPane>
         <TabPane tab="Feeds" key="feeds">
-          <div>Feeds</div>
+          <Feeds {...props} />
         </TabPane>
         <TabPane tab="Community" key="community">
           <div>Community</div>

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../../actions";
+import { getRssFeeds, getTrendingRssFeeds } from "../../../discover/actions";
 import { Icon } from "antd";
 import LikeButton from "../../../../components/likeButton/LikeButton";
 import * as util from "../../../../lib/util";
@@ -49,6 +50,8 @@ function DonateDetails(props) {
 
   useEffect(() => {
     props.actions.getDonateDetails(id);
+    props.actions.getRssFeeds();
+    props.actions.getTrendingRssFeeds();
     window.scrollTo(0, 0);
   }, []);
 
@@ -87,14 +90,22 @@ function DonateDetails(props) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    actions: bindActionCreators(actions, dispatch)
+    actions: bindActionCreators(
+      {
+        ...actions,
+        getRssFeeds,
+        getTrendingRssFeeds
+      },
+      dispatch
+    )
   };
 };
 
 const mapStateToProps = state => {
-  const { donate } = state;
+  const { donate, discover } = state;
   return {
-    ...donate
+    ...donate,
+    ...discover
   };
 };
 

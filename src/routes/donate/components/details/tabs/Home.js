@@ -1,5 +1,4 @@
 import React from "react";
-import { Tabs } from "antd";
 import YouTube from "../../../../../components/youTube/YouTube";
 import styled from "styled-components";
 
@@ -28,7 +27,7 @@ const StyledImpactDescription = styled.div`
   margin-bottom: 20px;
 `;
 
-export default function DonateTabs(props) {
+export default function Home(props) {
   const { selectedDonation } = props;
   return (
     <StyledContainer>

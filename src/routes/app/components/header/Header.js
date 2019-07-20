@@ -13,7 +13,7 @@ const StyledContainer = styled.div`
   background: #fff;
   margin-bottom: 7px;
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
 `;
 const StyledLogoContainer = styled.div`
   width: 34%;
