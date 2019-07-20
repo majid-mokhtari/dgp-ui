@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Form, Button, Input, Icon } from "antd";
+import React from "react";
+import { Form, Icon } from "antd";
 import styled from "styled-components";
 import example from "./ned.png";
 import moment from "moment";

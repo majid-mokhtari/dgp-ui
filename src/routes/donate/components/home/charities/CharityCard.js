@@ -2,6 +2,7 @@ import React from "react";
 import { Icon } from "antd";
 import * as util from "../../../../../lib/util";
 import styled from "styled-components";
+import LikeIcon from "../../../../../components/likeIcon/LikeIcon";
 
 const StyledCardContainer = styled.div`
   display: flex;
@@ -37,7 +38,7 @@ const StyledTagsContainer = styled.div`
 const StyledTag = styled.div`
   margin-left: 10px;
 `;
-const StyledIcon = styled.i`
+const StyledTagIcon = styled.i`
   margin-right: 10px;
   margin-bottom: 20px;
 `;
@@ -65,9 +66,9 @@ export default function CharityCard(props) {
           {data.categories.map((tag, i) => {
             return (
               <StyledTag key={i}>
-                <StyledIcon>
+                <StyledTagIcon>
                   <Icon type="tag" />
-                </StyledIcon>
+                </StyledTagIcon>
                 {tag}
               </StyledTag>
             );
@@ -77,6 +78,7 @@ export default function CharityCard(props) {
           {`${util.intToString(data.likeCount)} Likes`}
         </StyledLikesContainer>
       </StyledSummary>
+      <LikeIcon {...props} />
     </StyledCardContainer>
   );
 }

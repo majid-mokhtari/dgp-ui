@@ -7,8 +7,8 @@ const StyledCharitiesContainer = styled.div`
   mpadding-bottom: 30px;
 `;
 const StyledCharitiesHeader = styled.div`
-  padding: 40px 0;
   text-align: center;
+  padding-top: 30px;
 `;
 
 export default function Charities(props) {
