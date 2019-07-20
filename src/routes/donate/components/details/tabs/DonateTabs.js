@@ -1,6 +1,6 @@
 import React from "react";
 import { Tabs } from "antd";
-import YouTube from "../../../../../components/youTube/YouTube";
+import Home from "./Home";
 import styled from "styled-components";
 
 const StyledTabsContainer = styled.div`
@@ -9,48 +9,23 @@ const StyledTabsContainer = styled.div`
   background-color: #fff;
   min-width: 800px;
 `;
-const StyledTabContent = styled.div`
-  padding: 30px;
-`;
-const StyledDonateLink = styled.div`
-  text-align: center;
-`;
 
 const TabPane = Tabs.TabPane;
 
 export default function DonateTabs(props) {
   function callback(key) {}
-
+  //const { selectedDonation } = props;
   return (
     <StyledTabsContainer>
-      <Tabs defaultActiveKey="about" onChange={callback}>
-        <TabPane tab="About" key="about">
-          <StyledTabContent>
-            <h2>About</h2>
-            <p>
-              The Earth is our only home. And the Sierra Club is dedicated to
-              exploring, enjoying, and protecting it for everyone. Wildlife and
-              wild places need you. Read More
-            </p>
-            <h2>Feature Content</h2>
-            <YouTube
-              video="pvXPYhK_LiI"
-              width="100%"
-              height="400"
-              autoplay="0"
-              rel="0"
-              modest="1"
-            />
-            <h3>Are reusable coffee filters are good for enviornment?</h3>
-            <StyledDonateLink>
-              <a href="https://www.redcross.org/donate/donation.html/">
-                Read Full Article
-              </a>
-            </StyledDonateLink>
-          </StyledTabContent>
+      <Tabs defaultActiveKey="home" onChange={callback}>
+        <TabPane tab="Home" key="home">
+          <Home {...props} />
         </TabPane>
-        <TabPane tab="Impace" key="impace">
-          <div>Impace</div>
+        <TabPane tab="About" key="about">
+          <div>About</div>
+        </TabPane>
+        <TabPane tab="Impact" key="impact">
+          <div>Impact</div>
         </TabPane>
         <TabPane tab="Feeds" key="feeds">
           <div>Feeds</div>
