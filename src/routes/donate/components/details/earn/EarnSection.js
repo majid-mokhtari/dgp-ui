@@ -22,10 +22,12 @@ const ENV = process.env.NODE_ENV === "production" ? "production" : "sandbox";
 
 function EarnSection(props) {
   const [amount, setAmount] = useState(10);
-
+  const [paypalButtonRef, setPaypalButtonRef] = useState();
   function handleSubmit(e) {
     e.preventDefault();
     props.form.validateFields((err, fieldsValue) => {
+      paypalButtonRef.current.querySelector(".paypal-button").click();
+      console.log(paypalButtonRef.current.querySelector(".paypal-button"));
       if (err) {
         return;
       }
@@ -118,7 +120,11 @@ function EarnSection(props) {
               <RadioButton value="creditCard">
                 <Icon type="credit-card" /> Credit Card
               </RadioButton>
+              <RadioButton value="payPal">
+                <Icon type="credit-card" /> Paypal
+              </RadioButton>
               <PaypalButton
+                setPaypalButtonRef={ref => setPaypalButtonRef(ref)}
                 client={CLIENT}
                 env={ENV}
                 commit={true}

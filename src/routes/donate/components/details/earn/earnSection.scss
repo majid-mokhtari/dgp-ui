@@ -69,3 +69,11 @@
 .earn-form-button button {
   width: 50%;
 }
+
+#paymentMethod {
+  .ant-radio-button-wrapper {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
+}
