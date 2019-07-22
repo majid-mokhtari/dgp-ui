@@ -5,13 +5,15 @@ import auth from "./auth";
 import discover from "./discover";
 import donate from "./donate";
 import app from "./app";
+import member from "./member";
 
 const rootReducer = combineReducers({
   router,
   auth,
   discover,
   donate,
-  app
+  app,
+  member
 });
 
 export default rootReducer;

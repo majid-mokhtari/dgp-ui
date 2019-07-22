@@ -11,7 +11,7 @@ function DiscoverContainer() {
         path="/app/donate/home"
         component={props => <Home {...props} showFilter />}
       />
-      <Route path="/app/donate/details/:id" component={DonateDetails} />
+      <Route path="/app/donate/details/:partnerId" component={DonateDetails} />
     </Switch>
   );
 }

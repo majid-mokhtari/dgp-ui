@@ -11,6 +11,9 @@ const PaypalButton = ({
   onSuccess,
   onError,
   onCancel,
+  memberId,
+  partnerId,
+  offerId,
   setPaypalButtonRef = () => {}
 }) => {
   window.React = React;
@@ -35,16 +38,18 @@ const PaypalButton = ({
           amount: {
             total,
             currency
-          }
+          },
+          custom: `mid=${memberId}:pid=${partnerId}:oid=${offerId}`
         }
       ],
       redirect_urls: {
-        return_url: "http://localhost:3000/app?partnerId=1&memberId=2"
+        return_url: `http://localhost:3000/app?mid=${memberId}:pid=${partnerId}:oid=${offerId}`
       }
     });
 
   const onAuthorize = (data, actions) =>
-    actions.payment.execute().then(() => {
+    actions.payment.execute().then(details => {
+      console.log(details);
       const payment = {
         paid: true,
         cancelled: false,

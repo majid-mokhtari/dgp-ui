@@ -3,7 +3,8 @@ import * as types from "../constants/types";
 import { getCurrentUser } from "../lib/util";
 
 const initialState = {
-  authError: ""
+  authError: "",
+  memberId: 1
 };
 
 export default function auth(state = initialState, action) {

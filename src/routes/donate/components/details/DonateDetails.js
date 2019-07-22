@@ -46,10 +46,10 @@ const StyledIcon = styled.i`
 `;
 function DonateDetails(props) {
   const { selectedDonation } = props;
-  const { id } = props.match.params;
+  const { partnerId } = props.match.params;
 
   useEffect(() => {
-    props.actions.getDonateDetails(id);
+    props.actions.getDonateDetails(partnerId);
     props.actions.getRssFeeds();
     props.actions.getTrendingRssFeeds();
     window.scrollTo(0, 0);
@@ -102,10 +102,12 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => {
-  const { donate, discover } = state;
+  const { donate, discover, member, auth } = state;
   return {
     ...donate,
-    ...discover
+    ...discover,
+    ...member,
+    ...auth
   };
 };
 
