@@ -34,15 +34,17 @@ div {
   background-color: #fff2f0 !important;
 }
 
-.paypal-button {
-  border-radius: inherit;
-  border: 1px solid #ff6363;
-  height: 32px !important;
-  border-radius: inherit;
-}
-.paypal-button.paypal-button-color-gold {
-  background-color: #fff !important;
-}
-.paypal-button-text {
-  display: none;
+// .paypal-button {
+//   border-radius: inherit !important;
+//   height: 32px !important;
+//   border-radius: inherit;
+// }
+// .paypal-button.paypal-button-color-gold {
+//   background-color: #fff !important;
+// }
+// .paypal-button-text {
+//   display: none !important;
+// }
+.paypal-button-tagline {
+  visibility: hidden !important;
 }

@@ -73,6 +73,15 @@ const PaypalButton = ({
           onAuthorize={onAuthorize}
           onCancel={onCancel}
           onError={onError}
+          style={{
+            color: "gold",
+            shape: "rect",
+            label: "pay",
+            height: 40,
+            size: "responsive",
+            tagline: false,
+            fundingicons: true
+          }}
         />
       )}
     </div>

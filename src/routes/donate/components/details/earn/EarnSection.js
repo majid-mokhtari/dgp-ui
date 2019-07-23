@@ -14,8 +14,30 @@ const CLIENT = {
 
 const ENV = process.env.NODE_ENV === "production" ? "production" : "sandbox";
 
+const StyledCollapse = styled(Collapse)`
+  .ant-collapse-extra {
+    color: #00c6c0 !important;
+  }
+`;
+
+const StyledRadioGroup = styled(Radio.Group)`
+  display: flex !important;
+  justify-content: space-between;
+  margin-top: 20px !important;
+  label {
+    width: 20%;
+  }
+  .ant-radio-button-wrapper.ant-radio-button-wrapper-checked {
+    background-color: #fdbfb8;
+    color: black;
+  }
+`;
+const StyledPanelHeader = styled.span`
+  font-size: 15px;
+  line-height: 1.4;
+`;
+
 function EarnSection(props) {
-  const [amount, setAmount] = useState(10);
   const [paypalButtonRef, setPaypalButtonRef] = useState();
   const { partnerId } = props.match.params;
   const { featuredOffer, memberId, isLoggedIn } = props;
@@ -23,30 +45,34 @@ function EarnSection(props) {
   if (featuredOffer) {
     offerID = featuredOffer.offerID;
   }
+
   function handleSubmit(e) {
     e.preventDefault();
     props.form.validateFields((err, fieldsValue) => {
       paypalButtonRef.current.querySelector(".paypal-button").click();
-      console.log(paypalButtonRef.current.querySelector(".paypal-button"));
       if (err) {
         return;
       }
     });
   }
 
-  const { getFieldDecorator } = props.form;
+  const getExtra = text => {
+    return (
+      <div>
+        <img src={`${process.env.PUBLIC_URL}/images/star.svg`} />{" "}
+        <span>{text}</span>
+      </div>
+    );
+  };
+
+  const { getFieldDecorator, getFieldValue } = props.form;
+  const amount = getFieldValue("amount");
 
   useEffect(() => {
     props.form.setFieldsValue({
-      amount: 10,
-      frequency: "single",
-      paymentMethod: "creditCard"
+      amount: 10
     });
   }, []);
-
-  useEffect(() => {
-    props.form.setFieldsValue({ amount });
-  }, [amount]);
 
   const onSuccess = payment => console.log("Successful payment!", payment);
 
@@ -54,46 +80,28 @@ function EarnSection(props) {
     console.log("Erroneous payment OR failed to load script!", error);
 
   const onCancel = data => console.log("Cancelled payment!", data);
+
   return (
     <div className="earn-section">
       <h2 className="earn-section-title">Support & Earn</h2>
-      <Collapse defaultActiveKey={["1"]}>
-        <Panel header="Donate One Time" key="1">
+      <StyledCollapse defaultActiveKey={["1"]}>
+        <Panel
+          header={<StyledPanelHeader>Donate One Time</StyledPanelHeader>}
+          extra={getExtra("Earn 10 Points / $1 Donate")}
+          key="1"
+        >
           <Form onSubmit={handleSubmit}>
-            <span>Earn 10 Points / $1 Donate</span>
-            <div className="earn-form-amounts">
-              <span>Select a donation amount</span>
-              <div className="amounts">
-                <div
-                  className={amount === 10 ? "checked" : ""}
-                  onClick={() => setAmount(10)}
-                >
-                  <span>$10</span>
-                  <span>500 pts</span>
-                </div>
-                <div
-                  className={amount === 15 ? "checked" : ""}
-                  onClick={() => setAmount(15)}
-                >
-                  <span>$15</span>
-                  <span>750 pts</span>
-                </div>
-                <div
-                  className={amount === 20 ? "checked" : ""}
-                  onClick={() => setAmount(20)}
-                >
-                  <span>$20</span>
-                  <span>1000 pts</span>
-                </div>
-                <div
-                  className={amount === 50 ? "checked" : ""}
-                  onClick={() => setAmount(50)}
-                >
-                  <span>$50</span>
-                  <span>2500 pts</span>
-                </div>
-              </div>
-            </div>
+            <label>Select a donation amount</label>
+            <Form.Item>
+              {getFieldDecorator("amount")(
+                <StyledRadioGroup>
+                  <Radio.Button value={10}>$10</Radio.Button>
+                  <Radio.Button value={15}>$15</Radio.Button>
+                  <Radio.Button value={20}>$20</Radio.Button>
+                  <Radio.Button value={25}>$25</Radio.Button>
+                </StyledRadioGroup>
+              )}
+            </Form.Item>
             <Form.Item>
               {getFieldDecorator("amount")(
                 <InputNumber
@@ -122,13 +130,21 @@ function EarnSection(props) {
             />
           </Form>
         </Panel>
-        <Panel header="Donate Monthly (6 mo. )" key="2">
+        <Panel
+          header="Donate Monthly (6 mo. )"
+          key="2"
+          extra={getExtra("Earn 20 Points / $1 Donate")}
+        >
           <p>Donate Monthly (6 mo. )</p>
         </Panel>
-        <Panel header="Donate Using Points" key="3" disabled>
+        <Panel
+          header="Donate Using Points"
+          key="3"
+          extra={getExtra("Earn 10 Points / 50 Points Donate")}
+        >
           <p>Donate Using Points</p>
         </Panel>
-      </Collapse>
+      </StyledCollapse>
     </div>
   );
 }
