@@ -83,11 +83,11 @@ function SignupForm(props) {
           )}
         </Form.Item>
         <Button type="primary" htmlType="submit" className="login-btn">
-          Sign up
+          <span>Sign up</span>
         </Button>
         <div className="form-footer">
           <span>
-            Already have a Do Good Points account?{" "}
+            Already have a Do Good Points account?
             <span className="href" onClick={() => props.onClick()}>
               Log in
             </span>
