@@ -119,7 +119,7 @@ function FeaturedDetails(props) {
           </StyledPartnerDescription>
           <CharityCard data={featuredPartner} {...props} />
         </StyledCharity>
-        <TopComments {...props} />
+        <TopComments {...props} comments={commentsByOffer} />
       </StyledContentContainer>
       <StyledNavIcon>
         <Icon type="close" onClick={() => props.history.push("/app")} />

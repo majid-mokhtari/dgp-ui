@@ -37,6 +37,29 @@ export function getDonateDetails(id) {
   };
 }
 
+export function getCommentsByPartner(partnerId) {
+  return dispatch => {
+    axios
+      .get(`${baseUrl}/dgp/v1/social/comments/partners/${partnerId}`)
+      .then(({ data }) => {
+        const { comments } = data.data;
+        return dispatch(setCommentsByPartner({ commentsByPartner: comments }));
+      })
+      .catch(({ response }) => {
+        if (response) {
+          return dispatch(util.onServerError(response));
+        }
+      });
+  };
+}
+
+function setCommentsByPartner(payload) {
+  return {
+    type: types.COMMENTS_BY_PARTNER,
+    payload
+  };
+}
+
 function setDonationDetails(payload) {
   return {
     type: types.DONATE_DETAILS_RECEIVED,

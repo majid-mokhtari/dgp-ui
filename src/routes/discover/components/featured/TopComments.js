@@ -55,7 +55,7 @@ const StyledCommentNumbers = styled.span`
 `;
 
 const TopComments = props => {
-  const { commentsByOffer } = props;
+  const { comments } = props;
   const handleSubmit = e => {
     e.preventDefault();
   };
@@ -64,7 +64,7 @@ const TopComments = props => {
     <StyledContainer>
       <StyledHeader>Top Comments</StyledHeader>
       <StyledCommentCardsContainer>
-        {commentsByOffer.map((com, i) => {
+        {comments.map((com, i) => {
           return (
             <StyledCard key={i}>
               <StyledUserInfo>

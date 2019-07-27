@@ -5,6 +5,7 @@ import styled from "styled-components";
 import About from "./About";
 import Impact from "./Impact";
 import Feeds from "./Feeds";
+import Community from "./Community";
 
 const StyledTabsContainer = styled.div`
   margin: 20px 0;
@@ -19,7 +20,7 @@ export default function DonateTabs(props) {
   function callback(key) {}
   return (
     <StyledTabsContainer>
-      <Tabs defaultActiveKey="home" onChange={callback}>
+      <Tabs defaultActiveKey="community" onChange={callback}>
         <TabPane tab="Home" key="home">
           <Home {...props} />
         </TabPane>
@@ -33,7 +34,7 @@ export default function DonateTabs(props) {
           <Feeds {...props} />
         </TabPane>
         <TabPane tab="Community" key="community">
-          <div>Community</div>
+          <Community {...props} />
         </TabPane>
       </Tabs>
     </StyledTabsContainer>
