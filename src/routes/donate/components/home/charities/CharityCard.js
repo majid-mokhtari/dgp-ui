@@ -20,7 +20,7 @@ const StyledImg = styled.img`
 `;
 const StyledSummary = styled.div`
   width: 50%;
-  padding: 20px 0 0 68px;
+  padding: 20px 0 20px 68px;
 `;
 const StyledLogo = styled.img`
   height: 70px;
@@ -36,7 +36,7 @@ const StyledTagsContainer = styled.div`
   justify-content: left;
 `;
 const StyledTag = styled.div`
-  margin-left: 10px;
+  // margin-left: 10px;
 `;
 const StyledTagIcon = styled.i`
   margin-right: 10px;

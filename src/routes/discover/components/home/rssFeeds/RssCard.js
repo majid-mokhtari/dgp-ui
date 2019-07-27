@@ -18,8 +18,8 @@ const StyledSummary = styled.div`
   width: 500px;
 `;
 const StyledImg = styled.img`
-  width: 40%;
-  height: 210px;
+  width: 200px;
+  height: auto;
 `;
 const StyledIcon = styled.span`
   margin-right: 10px;

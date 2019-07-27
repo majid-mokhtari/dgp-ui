@@ -4,14 +4,16 @@ import FeaturedMedia from "./FeaturedMedia";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
-  width: 80%;
-  padding: 15px 30px;
+  padding: 24px 96px;
   margin: auto;
 `;
 const StyledContent = styled.div`
+  border-top: 8px solid #02c6c0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  box-sizing: content-box;
   display: flex;
   align-items: center;
-  margin-top: 5px;
   width: 100%;
   height: 300px;
   transition: box-shadow 0.5s;

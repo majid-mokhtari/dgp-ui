@@ -3,7 +3,6 @@ import YouTube from "../../../../../components/youTube/YouTube";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
-  margin-top: 5px;
   width: 100%;
 `;
 

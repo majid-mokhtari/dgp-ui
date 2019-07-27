@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const StyledHeartIcon = styled(Icon)`
   margin: 20px;
-  font-size: 30px;
+  font-size: 16px;
   color: #ff6363;
   &:hover {
     path {

@@ -20,8 +20,8 @@ const StyledMenu = styled.ul`
 const StyledMenuItem = styled.li`
   margin-left: 30px;
   margin-top: 10px;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: normal;
   cursor: pointer;
   transition: color 0.2s ease-out;
   ::after {
@@ -48,8 +48,8 @@ const StyledMenuItem = styled.li`
 const StyledActiveMenuItem = styled.li`
   margin-left: 30px;
   margin-top: 10px;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: normal;
   cursor: pointer;
   color: #ff6363;
   transition: color 0.2s ease-in;
