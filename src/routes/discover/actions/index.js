@@ -41,6 +41,7 @@ export function getFeaturedOffer(offerID = 1) {
 }
 
 function setFeaturedOffer(payload) {
+  console.log(payload);
   return {
     type: types.FEATURED_OFFER_RECEIVED,
     payload
@@ -95,13 +96,13 @@ function setFeaturedPartner(payload) {
   };
 }
 
-export function getCommentsByPartner(partnerId) {
+export function getCommentsByOffer(offerID) {
   return dispatch => {
     axios
-      .get(`${baseUrl}/dgp/v1/social/comments/partners/${partnerId}`)
+      .get(`${baseUrl}/dgp/v1/social/comments/offers/${offerID}`)
       .then(({ data }) => {
         const { comments } = data.data;
-        return dispatch(setFeaturedComments({ featuredComments: comments }));
+        return dispatch(setCommentsByOffer({ commentsByOffer: comments }));
       })
       .catch(({ response }) => {
         if (response) {
@@ -111,9 +112,32 @@ export function getCommentsByPartner(partnerId) {
   };
 }
 
-function setFeaturedComments(payload) {
+function setCommentsByOffer(payload) {
   return {
-    type: types.FEATURED_COMMENTS,
+    type: types.COMMENTS_BY_OFFER,
+    payload
+  };
+}
+
+export function getCommentsByPartner(partnerId) {
+  return dispatch => {
+    axios
+      .get(`${baseUrl}/dgp/v1/social/comments/partners/${partnerId}`)
+      .then(({ data }) => {
+        const { comments } = data.data;
+        return dispatch(setCommentsByPartner({ partnerComments: comments }));
+      })
+      .catch(({ response }) => {
+        if (response) {
+          return dispatch(util.onServerError(response));
+        }
+      });
+  };
+}
+
+function setCommentsByPartner(payload) {
+  return {
+    type: types.COMMENTS_BY_PARTNER,
     payload
   };
 }

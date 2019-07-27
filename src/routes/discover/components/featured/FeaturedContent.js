@@ -73,15 +73,15 @@ const StyledPartnerDescription = styled.h2`
 `;
 
 function FeaturedDetails(props) {
-  const { featuredOffer, featuredPartner, featuredComments } = props;
+  const { featuredOffer, featuredPartner, commentsByOffer } = props;
   const { id } = props.match.params;
   useEffect(() => {
     props.actions.getFeaturedOffer(parseInt(id));
     props.actions.getFeaturedPartner(id);
-    props.actions.getCommentsByPartner(id);
+    props.actions.getCommentsByOffer(id);
   }, []);
 
-  if (!featuredOffer || !featuredPartner || !featuredComments) return null;
+  if (!featuredOffer || !featuredPartner || !commentsByOffer) return null;
   return (
     <StyledContainer>
       <StyledNavIcon>
