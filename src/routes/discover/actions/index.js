@@ -118,6 +118,22 @@ function setCommentsByOffer(payload) {
   };
 }
 
+export function addComment(request) {
+  return dispatch => {
+    axios
+      .post(`${baseUrl}/dgp/v1/social/comments`, request)
+      .then(({ data }) => {
+        const { offer_id } = data.data.comment;
+        return dispatch(getCommentsByOffer(offer_id));
+      })
+      .catch(({ response }) => {
+        if (response) {
+          return dispatch(util.onServerError(response));
+        }
+      });
+  };
+}
+
 export function getRssFeeds() {
   return dispatch => {
     axios

@@ -34,15 +34,20 @@ const StyledButtonIcon = styled.img`
   border-right: none;
 `;
 const CommentForm = props => {
-  const { featuredOffer } = props;
-  const { getFieldDecorator } = props.form;
+  const { featuredOffer, form } = props;
+  const { getFieldDecorator } = form;
   const handleSubmit = e => {
     e.preventDefault();
-    props.form.validateFields((err, values) => {
+    props.form.validateFields((err, { content }) => {
       if (!err) {
-        console.log("Received values of form: ", values);
+        const { partnerID, offerID } = featuredOffer;
+        props.actions.addComment({
+          partnerID,
+          content,
+          offerID
+        });
         props.form.setFieldsValue({
-          comment: ""
+          content: ""
         });
       }
     });
@@ -56,7 +61,7 @@ const CommentForm = props => {
       <StyledDescription>Earn 2 Points/Commenting</StyledDescription>
       <Form onSubmit={handleSubmit}>
         <Form.Item>
-          {getFieldDecorator("comment", {
+          {getFieldDecorator("content", {
             rules: [{ required: true, message: "Say Something!" }]
           })(<TextArea rows={4} placeholder="Say Something..." />)}
         </Form.Item>

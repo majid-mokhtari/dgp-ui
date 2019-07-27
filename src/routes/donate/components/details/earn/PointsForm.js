@@ -83,7 +83,7 @@ function PointsForm(props) {
         env={ENV}
         commit={true}
         currency={"USD"}
-        total={amount}
+        total={(amount * 2) / 100}
         onSuccess={onSuccess}
         onError={onError}
         onCancel={onCancel}
