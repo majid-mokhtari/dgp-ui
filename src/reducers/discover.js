@@ -7,8 +7,7 @@ const initialState = {
   rssFeeds: [],
   trendingFeeds: [],
   featuredPartner: null,
-  commentsByOffer: [],
-  commentsByPartner: []
+  commentsByOffer: []
 };
 
 export default function discover(state = initialState, action) {

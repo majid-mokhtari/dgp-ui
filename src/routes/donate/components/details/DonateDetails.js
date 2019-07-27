@@ -52,6 +52,7 @@ function DonateDetails(props) {
     props.actions.getDonateDetails(partnerId);
     props.actions.getRssFeeds();
     props.actions.getTrendingRssFeeds();
+    props.actions.getCommentsByPartner(partnerId);
     window.scrollTo(0, 0);
   }, []);
 
