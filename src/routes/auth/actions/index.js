@@ -5,6 +5,8 @@ import * as types from "../../../constants/types";
 export const baseUrl =
   process.env.REACT_APP_DO_GOOD_URL || "http://localhost:8000";
 
+axios.defaults.withCredentials = true;
+
 export function loginRequest(request) {
   return dispatch => {
     axios
@@ -24,7 +26,7 @@ export function loginRequest(request) {
 export function getSelf() {
   return dispatch => {
     axios
-      .get(`${baseUrl}/dgp/v1/member/self`, { withCredentials: true })
+      .get(`${baseUrl}/dgp/v1/member/self`)
       .then(res => {
         return dispatch(userGetSelf(res));
       })
