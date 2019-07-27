@@ -9,7 +9,7 @@ function DiscoverContainer() {
       <Redirect exact from="/app/discover" to="/app/discover/home" />
       <Route path="/app/discover/home" component={Home} />
       <Route
-        path="/app/discover/featured/partner/:id"
+        path="/app/discover/featured/offer/:id"
         component={FeaturedContent}
       />
     </Switch>

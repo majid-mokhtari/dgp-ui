@@ -20,6 +20,33 @@ export function subscribe(email) {
   };
 }
 
+export function getFeaturedOffer(offerID = 1) {
+  return dispatch => {
+    axios
+      .get(`${baseUrl}/dgp/v1/offers/types/DFC`)
+      .then(({ data }) => {
+        const { offers } = data.data;
+        return dispatch(
+          setFeaturedOffer({
+            featuredOffer: offers.find(o => o.offerID === offerID)
+          })
+        );
+      })
+      .catch(({ response }) => {
+        if (response) {
+          return dispatch(util.onServerError(response));
+        }
+      });
+  };
+}
+
+function setFeaturedOffer(payload) {
+  return {
+    type: types.FEATURED_OFFER_RECEIVED,
+    payload
+  };
+}
+
 export function getFeaturedOfferByPartner(partnerId) {
   return dispatch => {
     axios
@@ -40,7 +67,7 @@ export function getFeaturedOfferByPartner(partnerId) {
 
 function setFeaturedOfferByPartner(payload) {
   return {
-    type: types.FEATURED_OFFER_RECEIVED,
+    type: types.FEATURED_OFFER_BY_PARTNER_RECEIVED,
     payload
   };
 }

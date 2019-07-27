@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Collapse } from "antd";
+import { Collapse } from "antd";
 import styled from "styled-components";
 import OneTimeForm from "./OneTimeForm";
 import MonthlyForm from "./MonthlyForm";
@@ -50,7 +50,7 @@ function EarnSection(props) {
   return (
     <StyledEarnSection>
       <StyledTitle>Support & Earn</StyledTitle>
-      <StyledCollapse defaultActiveKey={["1"]}>
+      <StyledCollapse defaultActiveKey="1" accordion>
         <Panel
           header={<StyledPanelHeader>Donate One Time</StyledPanelHeader>}
           extra={getExtra("Earn 10 Points / $1 Donate")}
@@ -77,4 +77,4 @@ function EarnSection(props) {
   );
 }
 
-export default Form.create()(EarnSection);
+export default EarnSection;

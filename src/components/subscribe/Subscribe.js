@@ -7,8 +7,8 @@ const Search = Input.Search;
 export default function Subscribe(props) {
   return (
     <div className="subscribe">
-      <h1>Get Updates & Get Involved</h1>
-      <h3>Sign up to recieve our weekly News</h3>
+      <h1>Connect with us!</h1>
+      <h3>Get updates and learn about ways to do good.</h3>
       <Search
         placeholder="Email Address"
         enterButton="SUBSCRIBE"

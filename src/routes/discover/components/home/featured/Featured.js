@@ -33,7 +33,7 @@ const StyledHeader = styled.h1`
 export default function Featured(props) {
   function onFeaturedClick() {
     const { offerID } = props.featuredOffer;
-    props.history.push(`/app/discover/featured/partner/${offerID}`);
+    props.history.push(`/app/discover/featured/offer/${offerID}`);
   }
   return (
     <StyledContainer onClick={onFeaturedClick}>

@@ -47,7 +47,7 @@ const Home = props => {
   useEffect(() => {
     props.actions.getRssFeeds();
     props.actions.getTrendingRssFeeds();
-    props.actions.getFeaturedOfferByPartner(1); //partnerId
+    props.actions.getFeaturedOffer();
     window.scrollTo(0, 0);
     window.addEventListener("scroll", onScroll);
     return () => {

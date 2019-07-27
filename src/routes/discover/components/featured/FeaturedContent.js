@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import * as actions from "../../actions";
 import YouTube from "../../../../components/youTube/YouTube";
 import styled from "styled-components";
-import { Icon, Button } from "antd";
+import { Icon } from "antd";
 import * as util from "../../../../lib/util";
 import LikeButton from "../../../../components/likeButton/LikeButton";
 import CommentForm from "./CommentForm";
@@ -75,9 +75,8 @@ const StyledPartnerDescription = styled.h2`
 function FeaturedDetails(props) {
   const { featuredOffer, featuredPartner, featuredComments } = props;
   const { id } = props.match.params;
-
   useEffect(() => {
-    props.actions.getFeaturedOfferByPartner(id);
+    props.actions.getFeaturedOffer(parseInt(id));
     props.actions.getFeaturedPartner(id);
     props.actions.getCommentsByPartner(id);
   }, []);
