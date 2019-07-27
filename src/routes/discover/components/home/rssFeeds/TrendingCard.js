@@ -7,6 +7,7 @@ const StyledContainer = styled.div`
   display: flex;
   background: #fff;
   margin-top: 30px;
+  cursor: pointer;
 `;
 const StyledSummary = styled.div`
   width: 100%;
@@ -29,7 +30,7 @@ const StyledDescription = styled.p`
 export default function TrendingCard({ data, categories }) {
   const category = categories.find(c => c.categoryID === data.categoryID);
   return (
-    <StyledContainer>
+    <StyledContainer onClick={() => window.open(data.linkURL)}>
       <StyledImg
         src={data.imageURL}
         className="rss-card-img"

@@ -9,6 +9,7 @@ const StyledContainer = styled.div`
   display: flex;
   border-bottom: solid 2px #d8d8d8;
   padding: 70px 0;
+  cursor: pointer;
   @media only screen and (max-width: 1142px) {
     max-width: 97%;
   }
@@ -39,7 +40,7 @@ const StyledTitle = styled.h2`
 export default function RssCard({ data, categories }) {
   const category = categories.find(c => c.categoryID === data.categoryID);
   return (
-    <StyledContainer>
+    <StyledContainer onClick={() => window.open(data.linkURL)}>
       <StyledSummary>
         <StyledTagContainer>
           <StyledIcon>
