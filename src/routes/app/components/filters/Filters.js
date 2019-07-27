@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Categories from "./Categories";
 import "./filters.scss";
 
@@ -6,22 +6,10 @@ export default function Filters(props) {
   const { pathname } = props.history.location;
   const pathArr = pathname.split("/");
   const path = pathArr[2];
-  const [filterClassName, setFilterClassName] = useState(getClassName());
+  const stickyRef = useRef();
 
-  function getClassName() {
-    if (path === "discover") {
-      if (window.pageYOffset >= 630) {
-        return "filter sticky";
-      } else {
-        return "filter";
-      }
-    } else {
-      return "filter";
-    }
-  }
-  function onScroll() {
-    setFilterClassName(getClassName());
-  }
+  const onScroll = () => {};
+
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
     return () => {
@@ -29,7 +17,7 @@ export default function Filters(props) {
     };
   }, []);
   return (
-    <div className={filterClassName}>
+    <div ref={stickyRef} className="filter">
       <Categories {...props} />
     </div>
   );

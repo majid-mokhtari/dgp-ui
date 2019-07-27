@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../../actions";
@@ -9,6 +9,7 @@ import RssFeeds from "./rssFeeds/RssFeeds";
 import Subscribe from "../../../../components/subscribe/Subscribe";
 import styled from "styled-components";
 import TrendingFeeds from "./rssFeeds/TrendingFeeds";
+import { visibleY } from "../../../../lib/util";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -24,24 +25,32 @@ const StyledChildren = styled.div`
 `;
 
 const Home = props => {
-  const [stickyClassName, setStickyClassName] = useState(
-    window.pageYOffset >= 4 ? "sticky" : ""
-  );
+  const inViewRef = useRef();
+  const containerRef = useRef();
+  const discoverFilterRef = useRef();
 
   const getFilter = () => (
-    <div className={`discover-filter ${stickyClassName}`}>
-      <Filters {...props} />
+    <div className="discover-filter-container">
+      <div ref={discoverFilterRef} className="discover-filter">
+        <Filters {...props} />
+      </div>
     </div>
   );
 
   const getRssFeeds = () => (
-    <div className={`discover-rss-feeds ${stickyClassName}`}>
+    <div className="discover-rss-feeds">
       <RssFeeds {...props} />
     </div>
   );
 
   function onScroll() {
-    setStickyClassName(window.pageYOffset >= 4 ? "sticky" : "");
+    if (discoverFilterRef.current) {
+      if (visibleY(inViewRef.current)) {
+        discoverFilterRef.current.classList.remove("sticky");
+      } else {
+        discoverFilterRef.current.classList.add("sticky");
+      }
+    }
   }
 
   useEffect(() => {
@@ -58,9 +67,9 @@ const Home = props => {
   return (
     <StyledContainer>
       <StyledHeader />
-      <StyledChildren>
+      <StyledChildren ref={containerRef}>
         <Featured {...props} />
-        <Subscribe {...props} />
+        <Subscribe {...props} isInViewRef={inViewRef} />
         {getFilter()}
         {getRssFeeds()}
         <TrendingFeeds {...props} />

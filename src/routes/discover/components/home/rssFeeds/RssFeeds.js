@@ -5,7 +5,6 @@ import styled from "styled-components";
 
 const StyledContainer = styled.div`
   background: #fff;
-  margin-top: 10px;
 `;
 const StyledCardsContainer = styled.div`
   width: 80%;

@@ -7,6 +7,22 @@
   width: 100%;
   z-index: 1;
 }
+
+.discover-filter-container {
+  min-height: 80px;
+  z-index: 10;
+  background: white;
+  position: relative;
+  .discover-filter {
+    border-top: 4px solid #eaeced;
+    border-bottom: 4px solid #eaeced;
+  }
+}
+.sticky {
+  position: fixed;
+  top: 60px;
+  width: 100%;
+}
 .filter.sticky {
   position: fixed;
   top: 60px;

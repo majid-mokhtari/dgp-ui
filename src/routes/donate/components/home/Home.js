@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../../actions";
@@ -8,33 +8,21 @@ import "./home.scss";
 
 function Home(props) {
   const { showFilter } = props;
-  const [stickyClassName, setStickyClassName] = useState(
-    window.pageYOffset >= 4 ? "sticky" : ""
-  );
 
   const getFilter = () => (
-    <div className={`donate-header ${stickyClassName}`}>
+    <div className="donate-header">
       <Filters {...props} />
     </div>
   );
 
-  function onScroll() {
-    setStickyClassName(window.pageYOffset >= 4 ? "sticky" : "");
-  }
-
   useEffect(() => {
     props.actions.getDonationPartners();
-    window.addEventListener("scroll", onScroll);
-    window.scrollTo(0, 0);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
+  }, [props.actions]);
 
   return (
     <div className="donate-home">
       {showFilter && getFilter()}
-      <div className={`donate-children ${stickyClassName}`}>
+      <div className="donate-children">
         <Charities {...props} />
       </div>
     </div>

@@ -5,14 +5,12 @@
 }
 .donate-header {
   width: 100%;
-}
-.donate-header.sticky {
   position: fixed;
-  top: 60px;
+  border-top: 4px solid #eaeced;
+  border-bottom: 4px solid #eaeced;
 }
+
 .donate-children {
   width: 100%;
-  padding: 30px 20px;
-}
-.donate-children.sticky {
+  margin-top: 80px;
 }
