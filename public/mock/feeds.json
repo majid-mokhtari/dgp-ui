@@ -1,0 +1,48 @@
+{
+  "status": "success",
+  "data": {
+    "feeds": [
+      {
+        "feedID": 2,
+        "categoryID": "social",
+        "title": "title for feed-2",
+        "description": "For or so many animals, it was the beginning of a miracle. It was the 1980s. Shelters across…For or so many animals, it was the beginning of a miracle. It was the 1980s. Shelters across…",
+        "imageURL": "https://www.cafonline.org/images/default-source/individuals-pages/girl_daisies-600px.jpg?sfvrsn=14d2b340_2",
+        "linkURL": "https://www.cafonline.org/my-personal-giving/long-term-giving/resource-centre/five-reasons-to-give-to-charity",
+        "source": "Cafs Online",
+        "trending": true
+      },
+      {
+        "feedID": 4,
+        "categoryID": "community",
+        "title": "title for feed-4",
+        "description": "For or so many animals, it was the beginning of a miracle. It was the 1980s. Shelters across…For or so many animals, it was the beginning of a miracle. It was the 1980s. Shelters across…",
+        "imageURL": "https://i.guim.co.uk/img/media/9c38a0ee99de7c6b448d4f3f09dafcb78b5cf31c/236_240_4013_2408/master/4013.jpg?width=620\u0026quality=85\u0026auto=format\u0026fit=max\u0026s=700172985111a9d782c87a4ba5dfc2ad",
+        "linkURL": "https://www.thebalancesmb.com/invest-in-your-community-2948357",
+        "source": "Small Business",
+        "trending": true
+      },
+      {
+        "feedID": 5,
+        "categoryID": "health",
+        "title": "title for feed-5",
+        "description": "For or so many animals, it was the beginning of a miracle. It was the 1980s. Shelters across…For or so many animals, it was the beginning of a miracle. It was the 1980s. Shelters across…",
+        "imageURL": "https://i.guim.co.uk/img/media/9c38a0ee99de7c6b448d4f3f09dafcb78b5cf31c/236_240_4013_2408/master/4013.jpg?width=620\u0026quality=85\u0026auto=format\u0026fit=max\u0026s=700172985111a9d782c87a4ba5dfc2ad",
+        "linkURL": "https://www.thelifeyoucansave.org/causes/health-charities",
+        "source": "The Life You Can Save",
+        "trending": false
+      },
+      {
+        "feedID": 1,
+        "categoryID": "animals",
+        "title": "An animal welfare society’s beginning",
+        "description": "For or so many animals, it was the beginning of a miracle. It was the 1980s. Shelters across…For or so many animals, it was the beginning of a miracle. It was the 1980s. Shelters across…",
+        "imageURL": "https://img.huffingtonpost.com/asset/5b9c4a812400005100532416.jpeg?ops=scalefit_720_noupscale",
+        "linkURL": "https://www.huffpost.com/entry/why-we-give-to-animal-cha_b_188773",
+        "source": "Huff Posts",
+        "trending": false
+      }
+    ]
+  },
+  "meta": { "isAuthenticated": false, "isRegisteredNewsletter": false }
+}

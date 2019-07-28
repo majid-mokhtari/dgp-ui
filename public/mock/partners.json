@@ -1,0 +1,56 @@
+{
+  "status": "success",
+  "data": {
+    "Partners": [
+      {
+        "id": 1,
+        "name": "Test partner one",
+        "type": "CHARITY",
+        "categories": ["environment", "animals"],
+        "logoURL": "https://s3.amazonaws.com/dgp-demo-assets/partner/1-logo.jpeg",
+        "short_desc": "This is short Description...",
+        "long_desc": "This is partner-1 long description...",
+        "aboutHTML": "\u003ch3\u003eThis is partner-1 about html.\u003c/h3\u003e",
+        "impactHTML": "\u003ch3\u003eThis is partner-1 impact html.\u003c/h3\u003e",
+        "creative": "{\"600x400\": [\"https://s3.amazonaws.com/dgp-demo-assets/partner/1-600x400.jpeg\"],\"200x100\": [\"https://s3.amazonaws.com/dgp-demo-assets/patner/1-200x100.png\"]}",
+        "phone": "(800) 123-4567",
+        "email": "demo1@dogoodpoints.com",
+        "website": "http://www.dogoodspoint.com?one",
+        "likeCount": 11
+      },
+      {
+        "id": 2,
+        "name": "Test partner Two",
+        "type": "ADV",
+        "categories": ["humanity", "social"],
+        "logoURL": "https://s3.amazonaws.com/dgp-demo-assets/partner/2-logo.jpeg",
+        "short_desc": "This is partner-2 short Description...",
+        "long_desc": "This is partner-2 long description...",
+        "aboutHTML": "\u003ch3\u003eThis is partner-2 about html.\u003c/h3\u003e",
+        "impactHTML": "\u003ch3\u003eThis is partner-2 impact html.\u003c/h3\u003e",
+        "creative": "{\"600x400\": [\"https://s3.amazonaws.com/dgp-demo-assets/partner/2-600x400.jpeg\"],\"200x100\": [\"https://s3.amazonaws.com/dgp-demo-assets/partner/2-200x100.png\"]}",
+        "phone": "(800) 234-5678",
+        "email": "demo2@dogoodpoints.com",
+        "website": "http://www.dogoodspoint.com/two",
+        "likeCount": 22
+      },
+      {
+        "id": 3,
+        "name": "Test partner Three",
+        "type": "ADV",
+        "categories": ["humanity", "health"],
+        "logoURL": "https://s3.amazonaws.com/dgp-demo-assets/partner/3-logo.jpeg",
+        "short_desc": "This is partner-3 short Description...",
+        "long_desc": "This is partner-3 long description...",
+        "aboutHTML": "\u003ch3\u003eThis is partner-3 about html.\u003c/h3\u003e",
+        "impactHTML": "\u003ch3\u003eThis is partner-3 impact html.\u003c/h3\u003e",
+        "creative": "{\"600x400\": [\"https://s3.amazonaws.com/dgp-demo-assets/partner/3-600x400.jpeg\"],\"200x100\": [\"https://s3.amazonaws.com/dgp-demo-assets/partner/3-200x100.png\"]}",
+        "phone": "(800) 345-6789",
+        "email": "demo3@dogoodpoints.com",
+        "website": "http://www.dogoodspoint.com/three",
+        "likeCount": 22
+      }
+    ]
+  },
+  "meta": { "isAuthenticated": false, "isRegisteredNewsletter": false }
+}

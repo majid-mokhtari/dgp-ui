@@ -8,7 +8,7 @@ export const baseUrl =
 export function getCategories() {
   return dispatch => {
     axios
-      .get(`${baseUrl}/dgp/v1/categories`)
+      .get(`/mock/categories.json`)
       .then(({ data }) => {
         const { Categories } = data.data;
         return dispatch(setCategories({ categories: Categories }));

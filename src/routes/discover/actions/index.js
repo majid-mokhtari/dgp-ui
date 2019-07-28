@@ -23,6 +23,7 @@ export function subscribe(email) {
 export function getFeaturedOffer(offerID = 1) {
   return dispatch => {
     axios
+<<<<<<< HEAD
       .get(`${baseUrl}/dgp/v1/offers/types/DFC`)
       .then(({ data }) => {
         const { offers } = data.data;
@@ -51,6 +52,9 @@ export function getFeaturedOfferByPartner(partnerId) {
   return dispatch => {
     axios
       .get(`${baseUrl}/dgp/v1/offers/partners/${partnerId}/types/DFC`)
+=======
+      .get("/mock/featuredOffers.json")
+>>>>>>> 9a18b3bb7e483d5b5a2267d0faa99a1e35a1ef4d
       .then(({ data }) => {
         const { offers } = data.data;
         return dispatch(
@@ -137,9 +141,7 @@ export function addComment(request) {
 export function getRssFeeds() {
   return dispatch => {
     axios
-      .get(
-        `${baseUrl}/dgp/v1/feeds?cids=animals,health,social,community,human_svc,humanity,public_svc,social`
-      )
+      .get("/mock/feeds.json")
       .then(({ data }) => {
         const { feeds } = data.data;
         return dispatch(setRssFeeds({ feeds }));
@@ -162,9 +164,7 @@ function setRssFeeds(payload) {
 export function getTrendingRssFeeds() {
   return dispatch => {
     axios
-      .get(
-        `${baseUrl}/dgp/v1/feeds/trending?cids=animals,health,social,community,human_svc,humanity,public_svc,social`
-      )
+      .get("/mock/trendings.json")
       .then(({ data }) => {
         const { feeds } = data.data;
         return dispatch(setTrendingRssFeeds({ trendingFeeds: feeds }));
