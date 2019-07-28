@@ -60,6 +60,22 @@ function setCommentsByPartner(payload) {
   };
 }
 
+export function addComment(request) {
+  return dispatch => {
+    axios
+      .post(`${baseUrl}/dgp/v1/social/comments`, request)
+      .then(({ data }) => {
+        const { partnerID } = data.data.comment;
+        return dispatch(getCommentsByPartner(partnerID));
+      })
+      .catch(({ response }) => {
+        if (response) {
+          return dispatch(util.onServerError(response));
+        }
+      });
+  };
+}
+
 function setDonationDetails(payload) {
   return {
     type: types.DONATE_DETAILS_RECEIVED,
