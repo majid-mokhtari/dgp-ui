@@ -20,7 +20,7 @@ export default function DonateTabs(props) {
   function callback(key) {}
   return (
     <StyledTabsContainer>
-      <Tabs defaultActiveKey="community" onChange={callback}>
+      <Tabs defaultActiveKey="home" onChange={callback}>
         <TabPane tab="Home" key="home">
           <Home {...props} />
         </TabPane>

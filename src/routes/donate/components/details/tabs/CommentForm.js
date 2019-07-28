@@ -9,8 +9,6 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding-bottom: 50px;
-  margin-top: 50px;
 `;
 const StyledHeader = styled.h1``;
 
