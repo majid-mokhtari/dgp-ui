@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Modal } from "antd";
 import LoginForm from "../../../auth/components/login";
 import SignUpForm from "../../../auth/components/signup";
+import ForgotPasswordForm from "../../../auth/components/forgotPassword";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
@@ -19,21 +20,37 @@ const StyledContainer = styled.div`
 export default function AuthButtons(props) {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
+  const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false);
 
   //should use useReducer but im lazy
   function onLoginClick() {
     setShowLoginModal(true);
     setShowSignUpModal(false);
+    setShowForgotPasswordModal(false);
   }
 
   function onSignUpClick() {
     setShowSignUpModal(true);
     setShowLoginModal(false);
+    setShowForgotPasswordModal(false);
+  }
+
+  function onForgotPasswordClick() {
+    setShowForgotPasswordModal(true);
+    setShowSignUpModal(false);
+    setShowLoginModal(false);
+  }
+
+  function onBack() {
+    setShowForgotPasswordModal(false);
+    setShowSignUpModal(false);
+    setShowLoginModal(true);
   }
 
   function handleCloseModal() {
     setShowLoginModal(false);
     setShowSignUpModal(false);
+    setShowForgotPasswordModal(false);
   }
 
   useEffect(() => {
@@ -44,20 +61,40 @@ export default function AuthButtons(props) {
     }
   }, [props.authError, props.isLoggedIn]);
 
-  const renderGenericModal = (Form, OnClick) => {
+  const renderGenericModal = (Form, OnClick, ForgotPasswordClick) => {
     return (
       <Modal visible={true} onCancel={handleCloseModal} footer={null}>
-        <Form {...props} onSubmitForm={handleCloseModal} onClick={OnClick} />
+        <Form
+          {...props}
+          onSubmitForm={handleCloseModal}
+          onClick={OnClick}
+          onForgotPasswordClick={ForgotPasswordClick}
+        />
       </Modal>
     );
   };
 
-  const renderModal = (showLoginModal, showSignUpModal) => {
+  const renderModal = (
+    showLoginModal,
+    showSignUpModal,
+    showForgotPasswordModal
+  ) => {
     if (showLoginModal) {
-      return renderGenericModal(LoginForm, onSignUpClick);
+      return renderGenericModal(
+        LoginForm,
+        onSignUpClick,
+        onForgotPasswordClick
+      );
     }
     if (showSignUpModal) {
-      return renderGenericModal(SignUpForm, onLoginClick);
+      return renderGenericModal(
+        SignUpForm,
+        onLoginClick,
+        onForgotPasswordClick
+      );
+    }
+    if (showForgotPasswordModal) {
+      return renderGenericModal(ForgotPasswordForm, onBack);
     }
 
     return null;
@@ -69,7 +106,7 @@ export default function AuthButtons(props) {
         Sign up
       </Button>
       <Button onClick={onLoginClick}>Log in</Button>
-      {renderModal(showLoginModal, showSignUpModal)}
+      {renderModal(showLoginModal, showSignUpModal, showForgotPasswordModal)}
     </StyledContainer>
   );
 }
